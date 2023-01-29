@@ -1,21 +1,62 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 15:40:47 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/01/27 19:11:27 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/01/29 15:18:15 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <unistd.h>
-#include <stdlib.h>
-#include <stdio.h>
 
-int	ft_atoi(const char *str)
+void freeall(int **thing)
+{
+	int i;
+
+	i = 0;
+	while (thing[++i])
+	{
+		free(thing[i]);
+		thing[i] = NULL;
+	}
+	if (thing)
+		free(thing);
+	thing = NULL;
+}
+
+size_t	ft_strlen(const char *s)
+{
+	size_t	i;
+
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
+}
+
+void	ft_swap(int *a, int *b)
+{
+	int	x;
+
+	x = *b;
+	*b = *a;
+	*a = x;
+}
+
+int stack_size(int *stack)
+{
+	int i;
+
+	i = 0;
+	while (stack[i])
+		i++;
+	return (i);
+}
+
+int	ft_atoi(char *str)
 {
 	int	i;
 	int	sign;
@@ -58,48 +99,66 @@ int verify_and_count(char *str)
 	return (1);
 }
 
-void print_stack(int *stack)
+void print_stack(char *contexte, int *stack)
 {
 	int i;
 
 	i = -1;
+	write (1, contexte, ft_strlen(contexte));
+	write (1, "\n", 1);
 	while (stack[++i])
-		printf("%d\n", stack[i]);
+		printf("%d ", stack[i]);
+	printf("\n\n");
 }
 
-int *fill_a_stack(char **argv)
+int *fill_stack_a(char **argv)
 {
 	int count;
-	int	*a_stack;
+	int	*stack_a;
 	
 	count = 1;
 	while (argv[count])
 	{
-		count += verify_and_count(argv[count]);
+		count += verify_and_count(argv[count] + 1);
 		if (count < 0)
 			return (0);
 	}
-	a_stack = malloc(sizeof(int) * count + 1);
+	stack_a = malloc(sizeof(int) * count + 1);
+	stack_a[count] = 0;
 	while (count != -1)
 	{
-		a_stack[count - 1] = ft_atoi(argv[count]);
+		stack_a[count - 1] = ft_atoi(argv[count]);
 		count--;
 	}
-	return (a_stack);
+	return (stack_a);
 }
 
 int main(int argc, char **argv)
 {
-	int *a_stack;
+	int *stack_a;
+	int *stack_b;
+
+	stack_b = malloc(sizeof(int) * 4);
+	stack_b[0] = 4;
+	stack_b[1] = 5;
+	stack_b[2] = 6;
+	stack_b[3] = 0;
 	(void)argc;
 
 	if (!&argv[1])
 		return (write(1, "T'as po mis d'arguments pd", 26));
-	a_stack = fill_a_stack(argv);
-	if (!a_stack)
+	stack_a = fill_stack_a(argv);
+	if (!stack_a)
 		return (write(2, "Error\n", 6));
-	print_stack(a_stack);
-	free(a_stack);
-	a_stack = NULL;
+	print_stack("\nstack a :", stack_a);
+	print_stack("stack b :", stack_b);
+	sa(&stack_a);
+	print_stack("\nstack a :", stack_a);
+	print_stack("stack b :", stack_b);
+	pa(&stack_a, &stack_b);
+	print_stack("\nstack a :", stack_a);
+	print_stack("stack b :", stack_b);
+	free(stack_a);
+	stack_a = NULL;
 	return (write(1, "gg\n", 3));
 }
