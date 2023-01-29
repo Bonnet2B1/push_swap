@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 19:18:10 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/01/29 17:08:17 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/01/29 18:44:54 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,12 +91,12 @@ void	pb(int **stack_a, int **stack_b)
 	j = -1;
 	new_stack_b = malloc(sizeof(int) * (stack_size(*stack_b) + 2));
 	new_stack_a = malloc(sizeof(int) * stack_size(*stack_a));
-	new_stack_b[0] = stack_a[0][0];
-	while(stack_b[0][++i])
-		new_stack_b[i + 1] = stack_b[0][i];
+	new_stack_b[0] = *stack_a[0];
+	while(*stack_b[++i])
+		new_stack_b[i + 1] = *stack_b[i];
 	new_stack_b[++i] = 0;
-	while(stack_a[0][(++j) + 1])
-		new_stack_a[j] = stack_a[0][j + 1];
+	while(*stack_a[(++j) + 1])
+		new_stack_a[j] = *stack_a[j + 1];
 	new_stack_a[++j] = 0;
 	free(*stack_b);
 	free(*stack_a);
@@ -107,6 +107,25 @@ void	pb(int **stack_a, int **stack_b)
 
 // ra (rotate a) : Décale d’une position vers le haut tous les élements de la pile a.
 // Le premier élément devient le dernier.
+
+void	ra(int **stack_a)
+{
+	int	temp;
+	int size = 3;
+	int i;
+
+	i = 1;
+	if (!*stack_a)
+		return ;
+	temp = stack_a[0][0];
+	while (i < size)
+	{
+		stack_a[0][i] = stack_a[0][i + 1];
+		i++;
+	}
+	*stack_a[i] = temp;
+	write(1, "ra\n", 3);
+}
 
 // rb (rotate b) : Décale d’une position vers le haut tous les élements de la pile b.
 // Le premier élément devient le dernier.

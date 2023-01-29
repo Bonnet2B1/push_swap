@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 15:40:47 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/01/29 17:08:58 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/01/29 18:37:17 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,10 +152,7 @@ int main(int argc, char **argv)
 		return (write(2, "Error\n", 6));
 	print_stack("\nstack a :", stack_a);
 	print_stack("stack b :", stack_b);
-	sa(&stack_a);
-	print_stack("\nstack a :", stack_a);
-	print_stack("stack b :", stack_b);
-	pa(&stack_a, &stack_b);
+	ra(&stack_a);
 	print_stack("\nstack a :", stack_a);
 	print_stack("stack b :", stack_b);
 	free(stack_a);

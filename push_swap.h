@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 15:44:56 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/01/29 17:08:27 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/01/29 17:27:20 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,3 +28,4 @@ void	sb(int **stack_b);
 void	ss(int **stack_a, int **stack_b);
 void	pa(int **stack_a, int **stack_b);
 void	pb(int **stack_a, int **stack_b);
+void	ra(int **stack_a);
