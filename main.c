@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 15:40:47 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/01/30 20:05:17 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/01/30 23:38:55 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int stack_size(int *stack)
 	int i;
 
 	i = 0;
-	while (stack[i])
+	while (stack && stack[i])
 		i++;
 	return (i);
 }
@@ -106,9 +106,31 @@ void print_stack(char *contexte, int *stack)
 	i = -1;
 	write (1, contexte, ft_strlen(contexte));
 	write (1, "\n", 1);
+	if (stack)
+	{
+		while (stack[++i])
+			printf("%d ", stack[i]);
+		printf("\n\n");
+	}
+}
+
+int check_double(const int *stack)
+{
+	int i;
+	int j;
+
+	i = -1;
+	j = -1;
 	while (stack[++i])
-		printf("%d ", stack[i]);
-	printf("\n\n");
+	{
+		while (stack[++j])
+		{
+			if (stack[i] == stack[j] && i != j)
+				return 0;
+		}
+		j = -1;
+	}
+	return (1);
 }
 
 int *fill_stack_a(char **argv)
@@ -130,7 +152,9 @@ int *fill_stack_a(char **argv)
 		stack_a[count - 1] = ft_atoi(argv[count]);
 		count--;
 	}
-	return (stack_a);
+	if (check_double(stack_a))
+		return (stack_a);
+	return (0);
 }
 
 int main(int argc, char **argv)
@@ -138,21 +162,16 @@ int main(int argc, char **argv)
 	int *stack_a;
 	int *stack_b;
 
-	stack_b = malloc(sizeof(int) * 4);
-	stack_b[0] = 3;
-	stack_b[1] = 1;
-	stack_b[2] = 2;
-	stack_b[3] = 0;
+	stack_b = NULL;
 	(void)argc;
-
-	if (!&argv[1])
-		return (write(1, "T'as po mis d'arguments pd", 26));
+	if (!argv[1])
+		return (write(1, "\n", 1));
 	stack_a = fill_stack_a(argv);
 	if (!stack_a)
 		return (write(2, "Error\n", 6));
 	print_stack("\nstack a :", stack_a);
 	print_stack("stack b :", stack_b);
-	rra(&stack_a);
+	pb(&stack_a, &stack_b);
 	print_stack("\nstack a :", stack_a);
 	print_stack("stack b :", stack_b);
 	free(stack_a);

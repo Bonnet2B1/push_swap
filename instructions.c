@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 19:18:10 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/01/30 20:31:22 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/01/30 23:45:29 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 void	sa(int **stack_a)
 {
-	if (!*stack_a[1])
+	if (!stack_a[0][1])
 		return ;
 	ft_swap(&stack_a[0][0], &stack_a[0][1]);
 	write(1, "sa\n", 3);
@@ -28,7 +28,7 @@ void	sa(int **stack_a)
 
 void	sb(int **stack_b)
 {
-	if (!*stack_b[1])
+	if (!stack_b[0][1])
 		return ;
 	ft_swap(&stack_b[0][0], &stack_b[0][1]);
 	write(1, "sa\n", 3);
@@ -38,7 +38,7 @@ void	sb(int **stack_b)
 
 void	ss(int **stack_a, int **stack_b)
 {
-	if (!stack_a[1] || !stack_b[1])
+	if (!stack_a[0][1] || !stack_b[0][1])
 		return ;
 	ft_swap(&stack_a[0][0], &stack_a[0][1]);
 	ft_swap(&stack_b[0][0], &stack_b[0][1]);
@@ -65,7 +65,7 @@ void	pa(int **stack_a, int **stack_b)
 	while(stack_a[0][++i])
 		new_stack_a[i + 1] = stack_a[0][i];
 	new_stack_a[++i] = 0;
-	while(stack_b[0][++j + 1])
+	while(*stack_b && stack_b[0][++j + 1])
 		new_stack_b[j] = stack_b[0][j + 1];
 	new_stack_b[++j] = 0;
 	free(*stack_a);
@@ -92,7 +92,7 @@ void	pb(int **stack_a, int **stack_b)
 	new_stack_b = malloc(sizeof(int) * (stack_size(*stack_b) + 2));
 	new_stack_a = malloc(sizeof(int) * stack_size(*stack_a));
 	new_stack_b[0] = *stack_a[0];
-	while(*stack_b[++i])
+	while(*stack_b && *stack_b[++i])
 		new_stack_b[i + 1] = *stack_b[i];
 	new_stack_b[++i] = 0;
 	while(*stack_a[++j + 1])
