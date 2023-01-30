@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 15:40:47 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/01/29 18:37:17 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/01/30 20:05:17 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,9 +139,9 @@ int main(int argc, char **argv)
 	int *stack_b;
 
 	stack_b = malloc(sizeof(int) * 4);
-	stack_b[0] = 4;
-	stack_b[1] = 5;
-	stack_b[2] = 6;
+	stack_b[0] = 3;
+	stack_b[1] = 1;
+	stack_b[2] = 2;
 	stack_b[3] = 0;
 	(void)argc;
 
@@ -152,7 +152,7 @@ int main(int argc, char **argv)
 		return (write(2, "Error\n", 6));
 	print_stack("\nstack a :", stack_a);
 	print_stack("stack b :", stack_b);
-	ra(&stack_a);
+	rra(&stack_a);
 	print_stack("\nstack a :", stack_a);
 	print_stack("stack b :", stack_b);
 	free(stack_a);

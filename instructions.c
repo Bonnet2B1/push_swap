@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 19:18:10 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/01/29 18:44:54 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/01/30 20:31:22 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	pa(int **stack_a, int **stack_b)
 	while(stack_a[0][++i])
 		new_stack_a[i + 1] = stack_a[0][i];
 	new_stack_a[++i] = 0;
-	while(stack_b[0][(++j) + 1])
+	while(stack_b[0][++j + 1])
 		new_stack_b[j] = stack_b[0][j + 1];
 	new_stack_b[++j] = 0;
 	free(*stack_a);
@@ -95,7 +95,7 @@ void	pb(int **stack_a, int **stack_b)
 	while(*stack_b[++i])
 		new_stack_b[i + 1] = *stack_b[i];
 	new_stack_b[++i] = 0;
-	while(*stack_a[(++j) + 1])
+	while(*stack_a[++j + 1])
 		new_stack_a[j] = *stack_a[j + 1];
 	new_stack_a[++j] = 0;
 	free(*stack_b);
@@ -111,31 +111,113 @@ void	pb(int **stack_a, int **stack_b)
 void	ra(int **stack_a)
 {
 	int	temp;
-	int size = 3;
 	int i;
 
-	i = 1;
 	if (!*stack_a)
 		return ;
+	i = -1;
 	temp = stack_a[0][0];
-	while (i < size)
-	{
+	while (stack_a[0][++i + 1])
 		stack_a[0][i] = stack_a[0][i + 1];
-		i++;
-	}
-	*stack_a[i] = temp;
+	stack_a[0][i] = temp;
 	write(1, "ra\n", 3);
 }
 
 // rb (rotate b) : Décale d’une position vers le haut tous les élements de la pile b.
 // Le premier élément devient le dernier.
 
+void	rb(int **stack_b)
+{
+	int	temp;
+	int i;
+
+	if (!*stack_b)
+		return ;
+	i = -1;
+	temp = stack_b[0][0];
+	while (stack_b[0][++i + 1])
+		stack_b[0][i] = stack_b[0][i + 1];
+	stack_b[0][i] = temp;
+	write(1, "rb\n", 3);
+}
+
 // rr : ra et rb en même temps.
+
+void	rr(int **stack_a, int **stack_b)
+{
+	int	temp;
+	int i;
+
+	if (!*stack_a || !*stack_b)
+		return ;
+	i = -1;
+	temp = stack_a[0][0];
+	while (stack_a[0][++i + 1])
+		stack_a[0][i] = stack_a[0][i + 1];
+	stack_a[0][i] = temp;
+	i = -1;
+	temp = stack_b[0][0];
+	while (stack_b[0][++i + 1])
+		stack_b[0][i] = stack_b[0][i + 1];
+	stack_b[0][i] = temp;
+	write(1, "rr\n", 3);
+}
 
 // rra (reverse rotate a) : Décale d’une position vers le bas tous les élements de
 // la pile a. Le dernier élément devient le premier.
 
+void	rra(int **stack_a)
+{
+	int	temp;
+	int i;
+
+	if (!*stack_a)
+		return ;
+	i = stack_size(*stack_a) - 1;
+	temp = stack_a[0][i++];
+	while (--i > 0)
+		stack_a[0][i] = stack_a[0][i - 1];
+	stack_a[0][i] = temp;
+	write(1, "rra\n", 4);
+}
+
 // rrb (reverse rotate b) : Décale d’une position vers le bas tous les élements de
 // la pile b. Le dernier élément devient le premier.
 
+void	rrb(int **stack_b)
+{
+	int	temp;
+	int i;
+
+	if (!*stack_b)
+		return ;
+	i = stack_size(*stack_b) - 1;
+	temp = stack_b[0][i++];
+	while (--i > 0)
+		stack_b[0][i] = stack_b[0][i - 1];
+	stack_b[0][i] = temp;
+	write(1,"rrb\n", 4);
+}
+
 // rrr : rra et rrb en même temps.
+
+void	rrr(int **stack_a, int ** stack_b)
+{
+	int	temp;
+	int i;
+
+	if (!*stack_a || !*stack_b)
+		return ;
+	i = stack_size(*stack_a) - 1;
+	temp = stack_a[0][i++];
+	while (--i > 0)
+	stack_a[0][i] = stack_a[0][i - 1];
+	stack_a[0][i] = temp;
+	write(1, "rra\n", 4);
+	i = stack_size(*stack_b) - 1;
+	temp = stack_b[0][i++];
+	while (--i > 0)
+		stack_b[0][i] = stack_b[0][i - 1];
+	stack_b[0][i] = temp;
+	write(1, "rrr\n", 4);
+}
