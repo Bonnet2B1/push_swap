@@ -6,11 +6,25 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 15:40:47 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/01/30 23:38:55 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/01/31 22:52:01 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	*ft_calloc(size_t size, size_t count)
+{
+	unsigned char	*s;
+	size_t				i;
+
+	i = -1;
+	s = malloc(count * size);
+	if (!s)
+		return (NULL);
+	while (++i < count * size)
+		s[i] = 0;
+	return (s);
+}
 
 void freeall(int **thing)
 {
@@ -99,19 +113,21 @@ int verify_and_count(char *str)
 	return (1);
 }
 
-void print_stack(char *contexte, int *stack)
+void print_stack(char stackname, int *stack)
 {
 	int i;
 
 	i = -1;
-	write (1, contexte, ft_strlen(contexte));
-	write (1, "\n", 1);
-	if (stack)
+	write (1, &stackname, 1);
+	write (1, " : ", 3);
+	if (stack && *stack)
 	{
 		while (stack[++i])
 			printf("%d ", stack[i]);
-		printf("\n\n");
+		printf("\n");
 	}
+	else
+		printf("vide\n");
 }
 
 int check_double(const int *stack)
@@ -145,8 +161,7 @@ int *fill_stack_a(char **argv)
 		if (count < 0)
 			return (0);
 	}
-	stack_a = malloc(sizeof(int) * count + 1);
-	stack_a[count] = 0;
+	stack_a = ft_calloc(sizeof(int), count + 1);
 	while (count != -1)
 	{
 		stack_a[count - 1] = ft_atoi(argv[count]);
@@ -157,6 +172,108 @@ int *fill_stack_a(char **argv)
 	return (0);
 }
 
+int isthesmallest(int n, int *stack)
+{
+	int i = -1;
+
+	while (stack[++i])
+		if (stack[i] < n)
+			return (0);
+	return 1;
+}
+
+int	thebiggest(int *stack)
+{
+	int thebigone;
+
+	thebigone = *stack;
+	while (*stack)
+	{
+		if (thebigone < *stack)
+			thebigone = *stack;
+		stack++;
+	}
+	return (thebigone);
+}
+
+int thesmallest(int *stack)
+{
+	int thesmallest;
+
+	thesmallest = *stack;
+	while (*stack)
+	{
+		if (thesmallest > *stack)
+			thesmallest = *stack;
+		stack++;
+	}
+	return (thesmallest);
+}
+int isinfirsthalf(int n, int *stack, int half)
+{
+	int i = -1;
+
+	while (stack[++i])
+		if (n >= thesmallest(stack) || n <= half)
+			return (1);
+	return (0);	
+}
+
+int isinsecondhalf(int n, int *stack, int half)
+{
+	int i = -1;
+
+	while (stack[++i])
+		if (n >= half || n <= thebiggest(stack))
+			return (1);
+	return (0);
+}
+
+// algo pas opti
+int	algonul(int **stack_a, int **stack_b)
+{
+	while(stack_a[0][0])
+	{
+		while (!isthesmallest(**stack_a, *stack_a))
+			ra(&*stack_a);
+		pb(&*stack_a, &*stack_b);
+	}
+	while(stack_b[0][0])
+		pa(&*stack_a, &*stack_b);
+	// print_stack('a', *stack_a);
+	// print_stack('b', *stack_b);
+	return (1);
+}
+
+// algo un peu plus opti
+int	algohalf(int **stack_a, int **stack_b)
+{
+	int size;
+	int half;
+	int count;
+
+	size = stack_size(*stack_a);
+	half = size / 2;
+	count = half;
+	while (stack_a[0][0])
+	{
+		while (count)
+		{
+
+			while (!isinfirsthalf(**stack_a, *stack_a, half))
+				ra(&*stack_a);
+			pb(&*stack_a, &*stack_b);		
+			count--;
+		}
+		while (!isinsecondhalf(**stack_a, *stack_a, half))
+			ra(&*stack_a);
+		pb(&*stack_a, &*stack_b);
+	}
+	// print_stack('a', *stack_a);
+	// print_stack('b', *stack_b);
+	return (1);
+}
+
 int main(int argc, char **argv)
 {
 	int *stack_a;
@@ -165,16 +282,17 @@ int main(int argc, char **argv)
 	stack_b = NULL;
 	(void)argc;
 	if (!argv[1])
-		return (write(1, "\n", 1));
+		return (1);
 	stack_a = fill_stack_a(argv);
 	if (!stack_a)
 		return (write(2, "Error\n", 6));
-	print_stack("\nstack a :", stack_a);
-	print_stack("stack b :", stack_b);
-	pb(&stack_a, &stack_b);
-	print_stack("\nstack a :", stack_a);
-	print_stack("stack b :", stack_b);
-	free(stack_a);
-	stack_a = NULL;
-	return (write(1, "gg\n", 3));
+	print_stack('a', stack_a);
+	print_stack('b', stack_b);
+	if (1)
+		algonul(&stack_a, &stack_b);
+	if (0)
+		algohalf(&stack_a, &stack_b);
+	print_stack('a', stack_a);
+	print_stack('b', stack_b);
+	return (1);
 }
