@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 15:40:47 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/02/01 15:23:59 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/02/01 18:31:53 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -184,31 +184,35 @@ int isthesmallest(int n, int *stack)
 
 int	thebiggest(int *stack)
 {
+	int i = 0;
 	int thebigone;
 
-	thebigone = *stack;
-	while (*stack)
+	thebigone = stack[i];
+	while (stack[i])
 	{
-		if (thebigone < *stack)
-			thebigone = *stack;
-		stack++;
+		if (thebigone < stack[i])
+			thebigone = stack[i];
+		i++;
 	}
 	return (thebigone);
 }
 
 int thesmallest(int *stack)
 {
+	int i = 0;
 	int thesmallest;
 
-	thesmallest = *stack;
-	while (*stack)
+	thesmallest = stack[i];
+	while (stack[i])
 	{
-		if (thesmallest > *stack)
-			thesmallest = *stack;
-		stack++;
+		if (thesmallest > stack[i])
+			thesmallest = stack[i];
+		i++;
 	}
 	return (thesmallest);
 }
+
+
 int isinfirsthalf(int n, int *stack, int half)
 {
 	int i = -1;
@@ -229,46 +233,67 @@ int isinsecondhalf(int n, int *stack, int thebigone)
 	return (0);
 }
 
+int	algook(int *stack_a, int *stack_b)
+{
+	int i = 0;
+
+	if (!stack_b || *stack_b)
+		return (0);
+	while (stack_a[i] && stack_a[i + 1])
+	{
+		if (stack_a[i] >= stack_a[i + 1])
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
 // algo pas opti
 int	algonul(int **stack_a, int **stack_b)
 {
-	while(stack_a[0][0])
-	{
-		while (!isthesmallest(**stack_a, *stack_a))
-			ra(&*stack_a);
-		pb(&*stack_a, &*stack_b);
-	}
-	while(stack_b[0][0])
-		pa(&*stack_a, &*stack_b);
-	// print_stack('a', *stack_a);
-	// print_stack('b', *stack_b);
+		while(stack_a[0][0])
+		{
+			while (!isthesmallest(**stack_a, *stack_a))
+				ra(&*stack_a);
+			pb(&*stack_a, &*stack_b);
+		}
 	return (1);
+}
+
+int isinthetwenty(int n, int *stack)
+{
+	int i = 0;
+	if (n >= (stack_size(stack)) * (0.25))
+		return (1);
+	i++;
+	return (0);
 }
 
 // algo un peu plus opti
 int	algohalf(int **stack_a, int **stack_b)
 {
-	int thebigone = thebiggest(*stack_a);
-	int count = stack_size(*stack_a);
-
-	while (count)
+	while(!algook(*stack_a, *stack_b))
 	{
-		while (count)
+		while(stack_a[0][0])
 		{
-
-			if (isinsecondhalf(**stack_a, *stack_a, thebigone))
+			while (!isinthetwenty(stack_a[0][0], stack_a[0]))
 			{
-				pb(&*stack_a, &*stack_b);		
-				count--;
-			}
-			ra(&*stack_a);
+				ra(&stack_a[0]);
+				// print_stack('a', *stack_a);
+				// print_stack('b', *stack_b);
+			}	
+			pb(&stack_a[0], &stack_b[0]);
+			// printf("stacksize : %d\n", stack_size(*stack_a));
+			// print_stack('a', *stack_a);
+			// print_stack('b', *stack_b);
 		}
-		// if (isinfirsthalf(**stack_a, *stack_a, half))
-		// 	pb(&*stack_a, &*stack_b);
-		// ra(&*stack_a);
+		while(stack_b[0][0])
+		{
+			while (!isthesmallest(**stack_b, *stack_b))
+				rb(&*stack_b);
+			pa(&*stack_a, &*stack_b);
+		}
 	}
-	// print_stack('a', *stack_a);
-	// print_stack('b', *stack_b);
 	return (1);
 }
 
@@ -292,3 +317,4 @@ int main(int argc, char **argv)
 	// print_stack('b', stack_b);
 	return (1);
 }
+//https://www.geeksforgeeks.org/bubble-sort-using-two-stacks/
