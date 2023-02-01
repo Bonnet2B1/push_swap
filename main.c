@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 15:40:47 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/01/31 22:52:01 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/02/01 15:23:59 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -214,17 +214,17 @@ int isinfirsthalf(int n, int *stack, int half)
 	int i = -1;
 
 	while (stack[++i])
-		if (n >= thesmallest(stack) || n <= half)
+		if (n >= thesmallest(stack) && n <= half)
 			return (1);
 	return (0);	
 }
 
-int isinsecondhalf(int n, int *stack, int half)
+int isinsecondhalf(int n, int *stack, int thebigone)
 {
 	int i = -1;
 
 	while (stack[++i])
-		if (n >= half || n <= thebiggest(stack))
+		if (n >= thebigone / 2 && n <= thebigone)
 			return (1);
 	return (0);
 }
@@ -248,26 +248,24 @@ int	algonul(int **stack_a, int **stack_b)
 // algo un peu plus opti
 int	algohalf(int **stack_a, int **stack_b)
 {
-	int size;
-	int half;
-	int count;
+	int thebigone = thebiggest(*stack_a);
+	int count = stack_size(*stack_a);
 
-	size = stack_size(*stack_a);
-	half = size / 2;
-	count = half;
-	while (stack_a[0][0])
+	while (count)
 	{
 		while (count)
 		{
 
-			while (!isinfirsthalf(**stack_a, *stack_a, half))
-				ra(&*stack_a);
-			pb(&*stack_a, &*stack_b);		
-			count--;
-		}
-		while (!isinsecondhalf(**stack_a, *stack_a, half))
+			if (isinsecondhalf(**stack_a, *stack_a, thebigone))
+			{
+				pb(&*stack_a, &*stack_b);		
+				count--;
+			}
 			ra(&*stack_a);
-		pb(&*stack_a, &*stack_b);
+		}
+		// if (isinfirsthalf(**stack_a, *stack_a, half))
+		// 	pb(&*stack_a, &*stack_b);
+		// ra(&*stack_a);
 	}
 	// print_stack('a', *stack_a);
 	// print_stack('b', *stack_b);
@@ -286,13 +284,11 @@ int main(int argc, char **argv)
 	stack_a = fill_stack_a(argv);
 	if (!stack_a)
 		return (write(2, "Error\n", 6));
-	print_stack('a', stack_a);
-	print_stack('b', stack_b);
-	if (1)
-		algonul(&stack_a, &stack_b);
-	if (0)
-		algohalf(&stack_a, &stack_b);
-	print_stack('a', stack_a);
-	print_stack('b', stack_b);
+	// print_stack('a', stack_a);
+	// print_stack('b', stack_b);
+	// algonul(&stack_a, &stack_b);
+	algohalf(&stack_a, &stack_b);
+	// print_stack('a', stack_a);
+	// print_stack('b', stack_b);
 	return (1);
 }
