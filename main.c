@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 15:40:47 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/02/03 20:51:31 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/02/03 23:25:50 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -229,7 +229,7 @@ int	algonul(int **stack_a, int **stack_b)
 	return (1);
 }
 
-int	findtheclosestfirstquarter(int *stack, int quarter)
+int	findtheclosestthingbetween(int *stack, int start, int end)
 {
 	int i = -1;
 	int a = -1;
@@ -237,88 +237,13 @@ int	findtheclosestfirstquarter(int *stack, int quarter)
 
 	while (stack[++i] && a == -1)
 	{
-		if (stack[i] > 0 && stack[i] <= (quarter))
+		if (stack[i] > start && stack[i] <= end)
 			a = i;
 	}
 	i = stack_size(stack);
 	while (--i >= 0 && b == -1)
 	{
-		if (stack[i] > 0 && stack[i] <= (quarter))
-			b = i;
-	}
-	if (a < (stack_size(stack) - b) && a != -1)
-		return a;
-	else if (b != -1)
-		return b;
-	else
-		return (-1);
-}
-
-int	findtheclosestsecondquarter(int *stack, int quarter)
-{
-	int i = -1;
-	int a = -1;
-	int b = -1;
-
-	while (stack[++i] && a == -1)
-	{
-		if (stack[i] > quarter && stack[i] <= (quarter * 2))
-			a = i;
-	}
-	i = stack_size(stack);
-	while (--i >= 0 && b == -1)
-	{
-		if (stack[i] > quarter && stack[i] <= (quarter * 2))
-			b = i;
-	}
-	if (a < (stack_size(stack) - b) && a != -1)
-		return a;
-	else if (b != -1)
-		return b;
-	else
-		return (-1);
-}
-
-int	findtheclosestthirdquarter(int *stack, int quarter)
-{
-	int i = -1;
-	int a = -1;
-	int b = -1;
-
-	while (stack[++i] && a == -1)
-	{
-		if (stack[i] > (quarter * 2) && stack[i] <= (quarter * 3))
-			a = i;
-	}
-	i = stack_size(stack);
-	while (--i >= 0 && b == -1)
-	{
-		if (stack[i] > (quarter * 2) && stack[i] <= (quarter * 3))
-			b = i;
-	}
-	if (a < (stack_size(stack) - b) && a != -1)
-		return a;
-	else if (b != -1)
-		return b;
-	else
-		return (-1);
-}
-
-int	findtheclosestlastquarter(int *stack, int quarter)
-{
-	int i = -1;
-	int a = -1;
-	int b = -1;
-
-	while (stack[++i] && a == -1)
-	{
-		if (stack[i] > (quarter * 3) && stack[i] <= (quarter * 4))
-			a = i;
-	}
-	i = stack_size(stack);
-	while (--i >= 0 && b == -1)
-	{
-		if (stack[i] > (quarter * 3) && stack[i] <= (quarter * 4))
+		if (stack[i] > start && stack[i] <= end)
 			b = i;
 	}
 	if (a < (stack_size(stack) - b) && a != -1)
@@ -349,7 +274,7 @@ int findthebiggest(int *stack)
 	return (ret);
 }
 
-void	smartpush_to_a(int **stack_a, int **stack_b, int position)
+void	smartpush_to_b(int **stack_a, int **stack_b, int position)
 {
 	int stockage;
 
@@ -368,7 +293,7 @@ void	smartpush_to_a(int **stack_a, int **stack_b, int position)
 	}
 }
 
-void	smartpush_to_b(int **stack_a, int **stack_b, int position)
+void	smartpush_to_a(int **stack_a, int **stack_b, int position)
 {
 	int stockage;
 
@@ -396,37 +321,24 @@ void	smartpush_to_b(int **stack_a, int **stack_b, int position)
 // algo un peu plus opti
 int	algobien(int **stack_a, int **stack_b)
 {
-	int quarter = stack_size(stack_a[0]) * 0.25 + 1;
+	int stacksize = stack_size(stack_a[0]);
 	int position;
-	
-	position = findtheclosestfirstquarter(stack_a[0], quarter);
-	while (position != -1)
+	float a = 0;
+	float multiplicateur = 0.25;
+	while (a * multiplicateur < stacksize)
 	{
-		smartpush_to_a(stack_a, stack_b, position);
-		position = findtheclosestfirstquarter(stack_a[0], quarter);
-	}
-	position = findtheclosestsecondquarter(stack_a[0], quarter);
-	while (position != -1)
-	{
-		smartpush_to_a(stack_a, stack_b, position);
-		position = findtheclosestsecondquarter(stack_a[0], quarter);
-	}
-	position = findtheclosestthirdquarter(stack_a[0], quarter);
-	while (position != -1)
-	{
-		smartpush_to_a(stack_a, stack_b, position);
-		position = findtheclosestthirdquarter(stack_a[0], quarter);
-	}
-	position = findtheclosestlastquarter(stack_a[0], quarter);
-	while (position != -1)
-	{
-		smartpush_to_a(stack_a, stack_b, position);
-		position = findtheclosestlastquarter(stack_a[0], quarter);
+		position = findtheclosestthingbetween(stack_a[0],a * stacksize , (a * stacksize) + multiplicateur * stacksize);
+		while (position != -1)
+		{
+			smartpush_to_b(stack_a, stack_b, position);
+			position = findtheclosestthingbetween(stack_a[0],a * stacksize , (a * stacksize) + multiplicateur * stacksize);
+		}
+		a += multiplicateur;
 	}
 	position = findthebiggest(stack_b[0]);
 	while (stack_b[0][0])
 	{
-		smartpush_to_b(stack_a, stack_b, position);
+		smartpush_to_a(stack_a, stack_b, position);
 		position = findthebiggest(stack_b[0]);
 	}
 	return (1);
@@ -448,8 +360,8 @@ int main(int argc, char **argv)
 	// print_stack('b', stack_b);
 	// algonul(&stack_a, &stack_b);
 	algobien(&stack_a, &stack_b);
-	// print_stack('b', stack_b);
 	// print_stack('a', stack_a);
+	// print_stack('b', stack_b);
 	return (1);
 }
 //https://www.geeksforgeeks.org/bubble-sort-using-two-stacks/
