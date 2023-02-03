@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 19:18:10 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/01/31 19:47:59 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/02/03 20:40:33 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ void	pb(int **stack_a, int **stack_b)
 	int i;
 	int j;
 
-	if (!stack_a[0][0])
+	if (!**stack_a)
 		return ;
 	i = -1;
 	j = -1;
@@ -92,13 +92,13 @@ void	pb(int **stack_a, int **stack_b)
 	new_stack_b[0] = stack_a[0][0];
 	while(stack_b[0] && stack_b[0][++i])
 		new_stack_b[i + 1] = stack_b[0][i];
-	while(stack_a[0][++j + 1])
+	while(*stack_a && stack_a[0][++j + 1])
 		new_stack_a[j] = stack_a[0][j + 1];
 	free(*stack_b);
 	free(*stack_a);
 	*stack_b = new_stack_b;
 	*stack_a = new_stack_a;
-	write(1, "pb\n", 3);
+	write(1, "pa\n", 3);
 }
 
 // ra (rotate a) : Décale d’une position vers le haut tous les élements de la pile a.
