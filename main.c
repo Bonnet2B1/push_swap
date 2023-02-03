@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 15:40:47 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/02/03 20:46:33 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/02/03 20:50:32 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -337,7 +337,7 @@ int findthebiggest(int *stack)
 
 	ret = 0;
 	thebigone = stack[i];
-	while (stack[i + 1])
+	while (stack[i])
 	{
 		if (thebigone < stack[i])
 		{
@@ -384,12 +384,12 @@ void	smartpush_to_b(int **stack_a, int **stack_b, int position)
 		while (stockage != stack_b[0][0])
 		{
 			rrb(&stack_b[0]);
-			print_stack('a', stack_a[0]);
-			print_stack('b', stack_b[0]);
+			// print_stack('a', stack_a[0]);
+			// print_stack('b', stack_b[0]);
 		}
 		pa(&stack_a[0], &stack_b[0]);
-		print_stack('a', stack_a[0]);
-		print_stack('b', stack_b[0]);
+		// print_stack('a', stack_a[0]);
+		// print_stack('b', stack_b[0]);
 	}
 }
 
