@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 15:40:47 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/02/01 18:31:53 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/02/02 21:15:13 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -260,7 +260,34 @@ int	algonul(int **stack_a, int **stack_b)
 	return (1);
 }
 
-int isinthetwenty(int n, int *stack)
+int isinfirstquarter(int n, int *stack)
+{
+	int i = 0;
+	if (n >= (stack_size(stack)) * (0.25))
+		return (1);
+	i++;
+	return (0);
+}
+
+int isinsecondquarter(int n, int *stack)
+{
+	int i = 0;
+	if (n >= (stack_size(stack)) * (0.25))
+		return (1);
+	i++;
+	return (0);
+}
+
+int isinthirdquarter(int n, int *stack)
+{
+	int i = 0;
+	if (n >= (stack_size(stack)) * (0.25))
+		return (1);
+	i++;
+	return (0);
+}
+
+int isinlastquarter(int n, int *stack)
 {
 	int i = 0;
 	if (n >= (stack_size(stack)) * (0.25))
@@ -270,31 +297,9 @@ int isinthetwenty(int n, int *stack)
 }
 
 // algo un peu plus opti
-int	algohalf(int **stack_a, int **stack_b)
+int	algobien(int **stack_a, int **stack_b)
 {
-	while(!algook(*stack_a, *stack_b))
-	{
-		while(stack_a[0][0])
-		{
-			while (!isinthetwenty(stack_a[0][0], stack_a[0]))
-			{
-				ra(&stack_a[0]);
-				// print_stack('a', *stack_a);
-				// print_stack('b', *stack_b);
-			}	
-			pb(&stack_a[0], &stack_b[0]);
-			// printf("stacksize : %d\n", stack_size(*stack_a));
-			// print_stack('a', *stack_a);
-			// print_stack('b', *stack_b);
-		}
-		while(stack_b[0][0])
-		{
-			while (!isthesmallest(**stack_b, *stack_b))
-				rb(&*stack_b);
-			pa(&*stack_a, &*stack_b);
-		}
-	}
-	return (1);
+
 }
 
 int main(int argc, char **argv)
