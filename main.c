@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 15:40:47 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/02/03 20:50:32 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/02/03 20:51:31 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -448,8 +448,8 @@ int main(int argc, char **argv)
 	// print_stack('b', stack_b);
 	// algonul(&stack_a, &stack_b);
 	algobien(&stack_a, &stack_b);
-	print_stack('a', stack_a);
-	print_stack('b', stack_b);
+	// print_stack('b', stack_b);
+	// print_stack('a', stack_a);
 	return (1);
 }
 //https://www.geeksforgeeks.org/bubble-sort-using-two-stacks/
