@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 15:40:47 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/02/03 23:25:50 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/02/04 10:37:07 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -220,12 +220,14 @@ int	algook(int *stack_a, int *stack_b)
 // algo pas opti
 int	algonul(int **stack_a, int **stack_b)
 {
-		while(stack_a[0][0])
-		{
-			while (!isthesmallest(**stack_a, *stack_a))
-				ra(&*stack_a);
-			pb(&*stack_a, &*stack_b);
-		}
+	while(stack_a[0][0])
+	{
+		while (!isthesmallest(**stack_a, *stack_a))
+			ra(&*stack_a);
+		pb(&*stack_a, &*stack_b);
+	}
+	while (stack_b[0][0])
+		pa(&*stack_a, &*stack_b);
 	return (1);
 }
 
@@ -324,7 +326,7 @@ int	algobien(int **stack_a, int **stack_b)
 	int stacksize = stack_size(stack_a[0]);
 	int position;
 	float a = 0;
-	float multiplicateur = 0.25;
+	float multiplicateur = 0.2;
 	while (a * multiplicateur < stacksize)
 	{
 		position = findtheclosestthingbetween(stack_a[0],a * stacksize , (a * stacksize) + multiplicateur * stacksize);
