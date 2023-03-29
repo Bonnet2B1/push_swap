@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 19:18:10 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/02/03 21:32:19 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/02/04 19:12:55 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	sb(int **stack_b)
 	if (!stack_b[0][1])
 		return ;
 	ft_swap(&stack_b[0][0], &stack_b[0][1]);
-	write(1, "sa\n", 3);
+	write(1, "sb\n", 3);
 }
 
 // ss : sa et sb en même temps.
@@ -217,3 +217,4 @@ void	rrr(int **stack_a, int ** stack_b)
 	stack_b[0][i] = temp;
 	write(1, "rrr\n", 4);
 }
+

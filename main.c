@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 15:40:47 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/02/04 10:37:07 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/03/29 22:44:40 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -326,7 +326,31 @@ int	algobien(int **stack_a, int **stack_b)
 	int stacksize = stack_size(stack_a[0]);
 	int position;
 	float a = 0;
-	float multiplicateur = 0.2;
+	float multiplicateur = 0.33;
+	while (a * multiplicateur < stacksize)
+	{
+		position = findtheclosestthingbetween(stack_a[0],a * stacksize , (a * stacksize) + multiplicateur * stacksize);
+		while (position != -1)
+		{
+			smartpush_to_b(stack_a, stack_b, position);
+			position = findtheclosestthingbetween(stack_a[0],a * stacksize , (a * stacksize) + multiplicateur * stacksize);
+		}
+		a += multiplicateur;
+	}
+	a = 0;
+	multiplicateur = 0.2;
+	while (a * multiplicateur < stacksize)
+	{
+		position = findtheclosestthingbetween(stack_b[0],a * stacksize , (a * stacksize) + multiplicateur * stacksize);
+		while (position != -1)
+		{
+			smartpush_to_a(stack_a, stack_b, position);
+			position = findtheclosestthingbetween(stack_b[0],a * stacksize , (a * stacksize) + multiplicateur * stacksize);
+		}
+		a += multiplicateur;
+	}
+	a = 0;
+	multiplicateur = 0.05;
 	while (a * multiplicateur < stacksize)
 	{
 		position = findtheclosestthingbetween(stack_a[0],a * stacksize , (a * stacksize) + multiplicateur * stacksize);
@@ -364,6 +388,6 @@ int main(int argc, char **argv)
 	algobien(&stack_a, &stack_b);
 	// print_stack('a', stack_a);
 	// print_stack('b', stack_b);
+	system("leaks push_swap");
 	return (1);
 }
-//https://www.geeksforgeeks.org/bubble-sort-using-two-stacks/
