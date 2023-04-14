@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 15:44:56 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/01/31 19:44:46 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/04/13 16:34:52 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+char	**ft_split(const char *s, char c);
 void	*ft_calloc(size_t count, size_t size);
 void	ft_swap(int *a, int *b);
 int		stack_size(int *stack);
@@ -22,6 +23,7 @@ int		verify_and_count(char *str);
 void print_stack(char stackname, int *stack);
 int		*fill_a_stack(char **argv);
 void	freeall(int **thing);
+char	*ft_strdup(const char *src);
 
 //	Instructions
 void	sa(int **stack_a);

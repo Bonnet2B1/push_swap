@@ -6,69 +6,11 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 15:40:47 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/03/29 22:45:11 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/04/13 16:44:07 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	*ft_calloc(size_t size, size_t count)
-{
-	unsigned char	*s;
-	size_t				i;
-
-	i = -1;
-	s = malloc(count * size);
-	if (!s)
-		return (NULL);
-	while (++i < count * size)
-		s[i] = 0;
-	return (s);
-}
-
-void freeall(int **thing)
-{
-	int i;
-
-	i = 0;
-	while (thing[++i])
-	{
-		free(thing[i]);
-		thing[i] = NULL;
-	}
-	if (thing)
-		free(thing);
-	thing = NULL;
-}
-
-size_t	ft_strlen(const char *s)
-{
-	size_t	i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
-}
-
-void	ft_swap(int *a, int *b)
-{
-	int	x;
-
-	x = *b;
-	*b = *a;
-	*a = x;
-}
-
-int stack_size(int *stack)
-{
-	int i;
-
-	i = 0;
-	while (stack && stack[i])
-		i++;
-	return (i);
-}
 
 int	ft_atoi(char *str)
 {
@@ -97,44 +39,6 @@ int	ft_atoi(char *str)
 	return (sign * nbr);
 }
 
-int verify_and_count(char *str)
-{
-	int i;
-
-	i = 0;
-	if (str[i] == '-' || str[i] == '+')
-		i++;
-	while (str[i])
-	{
-		if (!(str[i] >= '0' && str[i] <= '9'))
-			return (-2147483648);
-		i++;
-	}
-	return (1);
-}
-
-void print_stack(char stackname, int *stack)
-{
-	int i;
-
-	i = -1;
-	write (1, &stackname, 1);
-	write (1, " : ", 3);
-	if (stack && *stack)
-	{
-		while (stack[++i])
-		{
-			if (stack[i] < 10)
-				printf(" %d ", stack[i]);
-			else
-				printf("%d ", stack[i]);
-		}	
-		printf("\n");
-	}
-	else
-		printf("vide\n");
-}
-
 int check_double(const int *stack)
 {
 	int i;
@@ -154,27 +58,35 @@ int check_double(const int *stack)
 	return (1);
 }
 
-int *fill_stack_a(char **argv)
+int **check_quotes(char **argv)
 {
-	int count;
-	int	*stack_a;
+	int i;
+	char *temp;
+	i = -1;
+	while (argv[1][i++])
+	{
+		if (argv[1][i] == '0' && argv[2] == NULL)
+			return (NULL);
+		else
+		temp = ft_strdup(argv[1]); 
+		freeall(&argv[1]);
+		return (ft_split(temp, ' '));
+	}
+}
+
+int *verify_and_fill_stack_a(char **argv)
+{
+	//double quotes (ça fait un seul argument)
+	//check signe (pas de signe seul)
+	//check double
+	//check si la liste est déja triée
+	//int min int max + (strlen < 10)
+	if (!argv[1])
+		return (NULL);
+	argv[1] = check_quotes(argv);
+	if (!argv[1])
+		return (NULL);
 	
-	count = 1;
-	while (argv[count])
-	{
-		count += verify_and_count(argv[count] + 1);
-		if (count < 0)
-			return (0);
-	}
-	stack_a = ft_calloc(sizeof(int), count + 1);
-	while (count != -1)
-	{
-		stack_a[count - 1] = ft_atoi(argv[count]);
-		count--;
-	}
-	if (check_double(stack_a))
-		return (stack_a);
-	return (0);
 }
 
 int isthesmallest(int n, int *stack)
@@ -379,7 +291,7 @@ int main(int argc, char **argv)
 	(void)argc;
 	if (!argv[1])
 		return (1);
-	stack_a = fill_stack_a(argv);
+	stack_a = verify_and_fill_stack_a(argv);
 	if (!stack_a)
 		return (write(2, "Error\n", 6));
 	// print_stack('a', stack_a);
