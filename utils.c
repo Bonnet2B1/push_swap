@@ -36,7 +36,7 @@ void	*ft_calloc(size_t size, size_t count)
 	return (s);
 }
 
-void freeall(int **thing)
+void freeall(void **thing)
 {
 	int i;
 

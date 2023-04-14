@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 15:44:56 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/04/13 16:34:52 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/04/14 14:27:09 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int		ft_atoi(char *str);
 int		verify_and_count(char *str);
 void print_stack(char stackname, int *stack);
 int		*fill_a_stack(char **argv);
-void	freeall(int **thing);
+void	freeall(void **thing);
 char	*ft_strdup(const char *src);
 
 //	Instructions

@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 15:40:47 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/04/13 16:44:07 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/04/14 14:52:54 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int check_double(const int *stack)
 	return (1);
 }
 
-int **check_quotes(char **argv)
+char **check_quotes(char **argv)
 {
 	int i;
 	char *temp;
@@ -68,10 +68,13 @@ int **check_quotes(char **argv)
 		if (argv[1][i] == '0' && argv[2] == NULL)
 			return (NULL);
 		else
-		temp = ft_strdup(argv[1]); 
-		freeall(&argv[1]);
-		return (ft_split(temp, ' '));
+		{	
+			temp = ft_strdup(argv[1]); 
+			freeall((void **)&argv[1]);
+			return (ft_split(temp, ' '));
+		}
 	}
+	return (&argv[1]);
 }
 
 int *verify_and_fill_stack_a(char **argv)
@@ -297,7 +300,7 @@ int main(int argc, char **argv)
 	// print_stack('a', stack_a);
 	// print_stack('b', stack_b);
 	// algonul(&stack_a, &stack_b);
-	algobien(&stack_a, &stack_b);
+	// algobien(&stack_a, &stack_b);
 	// print_stack('a', stack_a);
 	// print_stack('b', stack_b);
 	system("leaks push_swap");
