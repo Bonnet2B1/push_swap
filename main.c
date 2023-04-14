@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 15:40:47 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/04/14 14:52:54 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/04/14 16:17:50 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,18 +62,20 @@ char **check_quotes(char **argv)
 {
 	int i;
 	char *temp;
+	// char *tempforfree;
 	i = -1;
 	while (argv[1][i++])
 	{
-		if (argv[1][i] == '0' && argv[2] == NULL)
+		if (argv[1][i] == ' ' && argv[2] == NULL)
 			return (NULL);
 		else
 		{	
 			temp = ft_strdup(argv[1]); 
-			freeall((void **)&argv[1]);
+			freeall((void **)argv);
 			return (ft_split(temp, ' '));
 		}
 	}
+	free((void *)argv[0]);
 	return (&argv[1]);
 }
 
@@ -85,11 +87,9 @@ int *verify_and_fill_stack_a(char **argv)
 	//check si la liste est déja triée
 	//int min int max + (strlen < 10)
 	if (!argv[1])
-		return (NULL);
-	argv[1] = check_quotes(argv);
-	if (!argv[1])
-		return (NULL);
-	
+		return (0);
+	argv = check_quotes(argv);
+	return (0);
 }
 
 int isthesmallest(int n, int *stack)
@@ -289,6 +289,7 @@ int main(int argc, char **argv)
 {
 	int *stack_a;
 	int *stack_b;
+	int i = -1;
 
 	stack_b = NULL;
 	(void)argc;
@@ -297,6 +298,8 @@ int main(int argc, char **argv)
 	stack_a = verify_and_fill_stack_a(argv);
 	if (!stack_a)
 		return (write(2, "Error\n", 6));
+	while (argv[++i])
+		printf("%s\n", argv[i]);
 	// print_stack('a', stack_a);
 	// print_stack('b', stack_b);
 	// algonul(&stack_a, &stack_b);
