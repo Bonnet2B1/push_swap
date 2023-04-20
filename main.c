@@ -6,91 +6,11 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 15:40:47 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/04/14 16:17:50 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/04/20 12:55:47 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	ft_atoi(char *str)
-{
-	int	i;
-	int	sign;
-	int	nbr;
-
-	i = 0;
-	sign = 1;
-	nbr = 0;
-	if (!str)
-		return (0);
-	if (str[i] == '-' || str[i] == '+')
-	{
-		if (str[i] == '-')
-			sign *= -1;
-		i++;
-	}
-	if (str[i] == '-' || str[i] == '+')
-		return (0);
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		nbr = nbr * 10 + (str[i] - 48);
-		i++;
-	}
-	return (sign * nbr);
-}
-
-int check_double(const int *stack)
-{
-	int i;
-	int j;
-
-	i = -1;
-	j = -1;
-	while (stack[++i])
-	{
-		while (stack[++j])
-		{
-			if (stack[i] == stack[j] && i != j)
-				return 0;
-		}
-		j = -1;
-	}
-	return (1);
-}
-
-char **check_quotes(char **argv)
-{
-	int i;
-	char *temp;
-	// char *tempforfree;
-	i = -1;
-	while (argv[1][i++])
-	{
-		if (argv[1][i] == ' ' && argv[2] == NULL)
-			return (NULL);
-		else
-		{	
-			temp = ft_strdup(argv[1]); 
-			freeall((void **)argv);
-			return (ft_split(temp, ' '));
-		}
-	}
-	free((void *)argv[0]);
-	return (&argv[1]);
-}
-
-int *verify_and_fill_stack_a(char **argv)
-{
-	//double quotes (ça fait un seul argument)
-	//check signe (pas de signe seul)
-	//check double
-	//check si la liste est déja triée
-	//int min int max + (strlen < 10)
-	if (!argv[1])
-		return (0);
-	argv = check_quotes(argv);
-	return (0);
-}
 
 int isthesmallest(int n, int *stack)
 {
