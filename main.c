@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 15:40:47 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/04/20 15:59:07 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/04/21 16:51:12 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,7 +116,7 @@ void	smartpush_to_b(int **stack_a, int **stack_b, int position)
 	int stockage;
 
 	stockage = stack_a[0][position];
-	if (position <= stack_size(stack_a[0]) / 2)
+	if (position <= stack_size(stack_a[0]) / 2)./	
 	{
 		while (stockage != stack_a[0][0])
 			ra(&stack_a[0]);
