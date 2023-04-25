@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 15:40:47 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/04/21 16:51:12 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/04/24 16:50:05 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,14 @@ int isthesmallest(int n, int *stack)
 
 int thesmallest(int *stack)
 {
-	int i = 0;
+	int i = -1;
 	int thesmallest;
 
-	thesmallest = stack[i];
-	while (stack[i])
+	thesmallest = stack[0];
+	while (stack[++i])
 	{
 		if (thesmallest > stack[i])
 			thesmallest = stack[i];
-		i++;
 	}
 	return (thesmallest);
 }
