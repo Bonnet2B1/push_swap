@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 16:34:12 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/05/02 16:41:40 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/05/02 18:21:36 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,6 @@ int	main(int argc, char **argv)
 	parser(argv, s);
 	if (!parser(argv, s))
 		return (write(1, "Error\n", 6));
-	algorithm(s, c);
-}
+	reader(s);
+}// le programme doit continuer à run si il n'y a qu'un seul nombre
+// penser à free gnl
