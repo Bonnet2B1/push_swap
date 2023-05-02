@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 16:01:47 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/04/28 22:26:55 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/05/02 16:12:32 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,14 +67,11 @@ void	costinit(t_cost *c)
 
 int	totalcost(int index_b, t_stack *s, t_cost *c)
 {
-	//solo = opti sur le calcule combien ça couterait individuellement
 	individual_cost(s, c, best_place(s, s->b[index_b]), index_b);
 		newcostless_tmp(c);
-	// up = opti sur le calcule si les deux montent 
 	up_cost(c, best_place(s, s->b[index_b]), index_b);
 	if (c->total_cal < c->total_tmp)
 		newcostless_tmp(c);
-	//down = opti sur le calcule si les deux descendent
 	down_cost(s, c, best_place(s, s->b[index_b]), index_b);
 	if (c->total_cal < c->total_tmp)
 		newcostless_tmp(c);

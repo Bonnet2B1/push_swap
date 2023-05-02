@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 17:45:44 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/04/28 22:00:37 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/05/02 16:12:43 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	newcostless(t_cost *c)
 	c->total_tmp = 2147483647;
 }
 
-int		best_place(t_stack *s, int value) // retourne l'index de la valeur à mettre au top de la stack a
+int		best_place(t_stack *s, int value)
 {
 	int i;
 

@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 15:54:44 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/05/02 15:22:27 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/05/02 16:41:02 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	parser(char **argv, t_stack *s)
 	while (argv[1 + (++i)] && atoi_error != 1)
 		s->a[i] = ft_atoi(argv[1 + i], &atoi_error);
 	if (atoi_error == 1 || dbl(s))
-		return (free(s->a), 0);
+		return (0);
 	if (sorted(s))
 		return (free(s->a), exit(0), 1);
 	return (1);
