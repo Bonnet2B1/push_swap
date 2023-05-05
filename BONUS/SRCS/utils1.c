@@ -1,4 +1,4 @@
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
 void	*ft_calloc(size_t size, size_t count)
 {
@@ -50,49 +50,40 @@ int	ft_atoi(char *str, int *atoi_error)
 	}
 	return (sign * nbr);
 }
-
-void print_stacks(t_stack *s)
+int	ft_isascii(int c)
 {
-	int i;
-
-	i = -1;
-	printf("a: ");
-	if (s->size_a == 0)
-		printf("empty\n");
-	else
-	{
-		while (++i < s->size_a)
-			printf("%d ", s->a[i]);
-		printf("\n");
-	}
-	i = -1;
-	printf("b: ");
-	if (s->size_b == 0)
-		printf("empty\n");
-	else
-	{
-		while (++i < s->size_b)
-			printf("%d ", s->b[i]);
-		printf("\n");
-	}
+	if (c >= 0 && c <= 127)
+		return (1);
+	return (0);
 }
 
-void	migration(t_stack *s)
+void	comparator(char *line, t_stack *s)
 {
-	while (s->size_a > (s->size_a + s->size_b) / 2 + 2)
+	if (ft_strncmp(line, "sa\n", 3) == 0)
+		sa(s);
+	else if (ft_strncmp(line, "sb\n", 3) == 0)
+		sb(s);
+	else if (ft_strncmp(line, "ss\n", 3) == 0)
+		ss(s);
+	else if (ft_strncmp(line, "pa\n", 3) == 0)
+		pa(s);
+	else if (ft_strncmp(line, "pb\n", 3) == 0)
+		pb(s);
+	else if (ft_strncmp(line, "ra\n", 3) == 0)
+		ra(s);
+	else if (ft_strncmp(line, "rb\n", 3) == 0)
+		rb(s);
+	else if (ft_strncmp(line, "rr\n", 3) == 0)
+		rr(s);
+	else if (ft_strncmp(line, "rra\n", 4) == 0)
+		rra(s);
+	else if (ft_strncmp(line, "rrb\n", 4) == 0)
+		rrb(s);
+	else if (ft_strncmp(line, "rrr\n", 4) == 0)
+		rrr(s);
+	else
 	{
-		if (biggestisontop(s) || smallestisontop(s))
-			ra(s);
-		else if (s->a[0] < s->median + 1)
-			pb(s);
-		else
-			ra(s);
-	}
-	while (s->size_a > 2)
-	{
-		if (biggestisontop(s) || smallestisontop(s))
-			ra(s);
-		else
-			pb(s);
+		write(2, "Error\n", 6);
+		exit(0);
 	}
 }

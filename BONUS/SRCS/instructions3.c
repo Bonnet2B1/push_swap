@@ -6,11 +6,11 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 19:18:10 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/05/02 17:48:24 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/05/05 16:48:25 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
 void	rrr(t_stack *s)
 {
@@ -18,6 +18,7 @@ void	rrr(t_stack *s)
 	int	i;
 
 	if (!s->size_a || !s->size_b)
+	return ;
 	i = s->size_a - 1;
 	temp = s->a[i++];
 	while (--i > 0)

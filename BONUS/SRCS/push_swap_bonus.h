@@ -6,16 +6,17 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 16:33:38 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/05/02 18:04:07 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/05/05 17:34:22 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef PUSH_SWAP_BONUS_H
+# define PUSH_SWAP_BONUS_H
 
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include "../get_next_line/get_next_line.h"
 
 // structure
 
@@ -30,31 +31,6 @@ typedef struct s_stack
 
 }		t_stack;
 
-typedef struct s_cost
-{
-	int	ra_cal;
-	int	rb_cal;
-	int	rr_cal;
-	int	rra_cal;
-	int	rrb_cal;
-	int	rrr_cal;
-	int	total_cal;
-	int	ra_tmp;
-	int	rb_tmp;
-	int	rr_tmp;
-	int	rra_tmp;
-	int	rrb_tmp;
-	int	rrr_tmp;
-	int	total_tmp;
-	int	ra;
-	int	rb;
-	int	rr;
-	int	rra;
-	int	rrb;
-	int	rrr;
-	int	total;
-}		t_cost;
-
 // ft_split.c
 char	**ft_split(const char *s, char c);
 
@@ -65,43 +41,20 @@ int		parser(char **argv, t_stack *s);
 void	*ft_calloc(size_t count, size_t size);
 void	ft_swap(int *a, int *b);
 int		ft_atoi(char *str, int *atoi_error);
-void	print_stacks(t_stack *s);
-void	migration(t_stack *s);
+int		ft_isascii(int c);
+void	comparator(char *line, t_stack *s);
 
 // utils2.c
-char	*ft_strdup(const char *src);
 size_t	ft_strlen(const char *s);
 int		arg_counter(char **argv);
-int		huge_arg(char **argv);
-void	smallest_go_top(t_stack *s, int **stack, int stack_size);
 
 // utils3.c
 int		multiple_args(char **argv);
 int		dbl(t_stack *s);
 int		sorted(t_stack *s);
-void	freeall(int **stack, int stack_size);
-int		indexofthesmallest(int **stack, int stack_size);
-
-// utils4.c
-int		biggestisontop(t_stack *s);
-int		smallestisontop(t_stack *s);
-void	costinit(t_cost *c);
-int		totalcost(int index_b, t_stack *s, t_cost *c);
-int		index_costless_mv(t_stack *s, t_cost *c);
-
-// utils5.c
-void	newcostless(t_cost *c);
-int		best_place(t_stack *s, int value);
-void	individual_cost(t_stack *s, t_cost *c, int index_a, int index_b);
-void	up_cost(t_cost *c, int index_a, int index_b);
-void	down_cost(t_stack *s, t_cost *c, int index_a, int index_b);
-
-// utils6.c
-void	newcostless_tmp(t_cost *c);
-void	move(t_stack *s, t_cost *c);
 
 // ft_strncmp.c
-int		ft_strncmp(const char *s1, const char *s2, size_t n)
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
 
 // reader.c
 int		reader(t_stack *s);

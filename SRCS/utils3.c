@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 23:08:13 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/05/02 18:24:57 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/05/04 18:51:19 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,19 +59,23 @@ int	sorted(t_stack *s)
 
 void	freeall(int **stack, int stack_size)
 {
-	int i = -1;
+	int	i;
 
+	i = -1;
 	while (++i < stack_size)
 		free(stack[i]);
 	free(stack);
 }
 
-int indexofthesmallest(int **stack, int stack_size)
+int	indexofthesmallest(int **stack, int stack_size)
 {
-	int i = -1;
-	int smallest = stack[0][0];
-	int index = 0;
+	int	i;
+	int	smallest;
+	int	index;
 
+	i = -1;
+	smallest = stack[0][0];
+	index = 0;
 	while (++i < stack_size)
 		if (smallest > stack[0][i])
 		{

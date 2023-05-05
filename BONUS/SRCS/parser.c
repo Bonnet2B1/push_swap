@@ -6,11 +6,11 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 15:54:44 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/05/02 16:41:02 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/05/05 17:31:18 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
 int	parser(char **argv, t_stack *s)
 {
@@ -27,6 +27,8 @@ int	parser(char **argv, t_stack *s)
 		return (0);
 	while (argv[1 + (++i)] && atoi_error != 1)
 		s->a[i] = ft_atoi(argv[1 + i], &atoi_error);
+	if (s->size_a == 1)
+	return (1);
 	if (atoi_error == 1 || dbl(s))
 		return (0);
 	if (sorted(s))
