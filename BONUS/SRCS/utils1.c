@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils1_bonus.c                                     :+:      :+:    :+:   */
+/*   utils1.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 00:13:53 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/05/07 00:13:55 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/05/07 00:39:44 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker_bonus.h"
+#include "checker.h"
 
 void	*ft_calloc(size_t size, size_t count)
 {
@@ -63,6 +63,7 @@ int	ft_atoi(char *str, int *atoi_error)
 	}
 	return (sign * nbr);
 }
+
 int	ft_isascii(int c)
 {
 	if (c >= 0 && c <= 127)
@@ -95,8 +96,5 @@ void	comparator(char *line, t_stack *s)
 	else if (ft_strncmp(line, "rrr\n", 4) == 0)
 		rrr(s);
 	else
-	{
-		write(2, "Error\n", 6);
-		exit(0);
-	}
+		return (write(2, "Error\n", 6), exit(0));
 }

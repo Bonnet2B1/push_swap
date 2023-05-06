@@ -1,33 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp_BONUS.c                                 :+:      :+:    :+:   */
+/*   instructions3.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/23 21:45:53 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/05/07 00:10:03 by edelarbr         ###   ########.fr       */
+/*   Created: 2023/01/27 19:18:10 by edelarbr          #+#    #+#             */
+/*   Updated: 2023/05/07 00:36:58 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker_bonus.h"
+#include "checker.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+void	rrr(t_stack *s)
 {
-	size_t	i;
+	int	temp;
+	int	i;
 
-	i = 0;
-	if (s1 == NULL || s2 == NULL)
-		return (1);
-	while ((s1[i] || s2[i]) && i < n)
-	{
-		if (!ft_isascii(s1[i]) || !ft_isascii(s2[i]))
-			i++;
-		if ((s1[i] > s2[i]) || !s2[i])
-			return (1);
-		if ((s1[i] < s2[i]) || !s1[i])
-			return (-1);
-		i++;
-	}
-	return (0);
+	if (!s->size_a || !s->size_b)
+		return ;
+	i = s->size_a - 1;
+	temp = s->a[i++];
+	while (--i > 0)
+		s->a[i] = s->a[i - 1];
+	s->a[i] = temp;
+	i = s->size_b - 1;
+	temp = s->b[i++];
+	while (--i > 0)
+		s->b[i] = s->b[i - 1];
+	s->b[i] = temp;
 }

@@ -1,28 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reader_BONUS.c                                     :+:      :+:    :+:   */
+/*   utils2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/02 17:50:34 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/05/07 00:09:17 by edelarbr         ###   ########.fr       */
+/*   Created: 2023/05/07 00:12:02 by edelarbr          #+#    #+#             */
+/*   Updated: 2023/05/07 00:36:58 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker_bonus.h"
+#include "checker.h"
 
-int	reader(t_stack *s)
+size_t	ft_strlen(const char *s)
 {
-	char	*line;
+	size_t	i;
 
-	line = NULL;
-	line = get_next_line(0);
-	while (line)
-	{
-		comparator(line, s);
-		free(line);
-		line = get_next_line(0);
-	}
-	return (0);
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
+}
+
+int	arg_counter(char **argv)
+{
+	int	i;
+
+	i = 0;
+	while (argv[i])
+		i++;
+	return (i);
 }

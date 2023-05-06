@@ -1,33 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils2_bonus.c                                     :+:      :+:    :+:   */
+/*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/07 00:12:02 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/05/07 00:13:24 by edelarbr         ###   ########.fr       */
+/*   Created: 2023/04/14 16:34:12 by edelarbr          #+#    #+#             */
+/*   Updated: 2023/05/07 00:36:58 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker_bonus.h"
+#include "checker.h"
 
-size_t	ft_strlen(const char *s)
+int	main(int argc, char **argv)
 {
-	size_t	i;
+	t_stack	*s;
 
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
+	(void)argc;
+	s = malloc(sizeof(t_stack));
+	parser(argv, s);
+	if (!parser(argv, s))
+		return (write(1, "Error\n", 6));
+	reader(s);
+	if (sorted(s) && !s->size_b)
+		return (write(1, "OK\n", 3));
+	else
+		return (write(1, "KO\n", 3));
 }
-
-int	arg_counter(char **argv)
-{
-	int	i;
-
-	i = 0;
-	while (argv[i])
-		i++;
-	return (i);
-}
+// penser à free gnl

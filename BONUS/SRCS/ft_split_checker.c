@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker_bonus.h"
+#include "checker.h"
 
 static size_t	nextlen(const char *s, size_t i, char c)
 {
