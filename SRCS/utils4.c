@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 16:01:47 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/05/02 16:12:32 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/05/05 18:26:58 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	biggestisontop(t_stack *s)
 {
-	int i;
+	int	i;
 
 	i = -1;
 	while (++i < s->size_a)
@@ -22,14 +22,14 @@ int	biggestisontop(t_stack *s)
 		if (s->a[i] > s->a[0])
 		{
 			return (0);
-		}	
+		}
 	}
 	return (1);
 }
 
 int	smallestisontop(t_stack *s)
 {
-	int i;
+	int	i;
 
 	i = -1;
 	while (++i < s->size_a)
@@ -68,7 +68,7 @@ void	costinit(t_cost *c)
 int	totalcost(int index_b, t_stack *s, t_cost *c)
 {
 	individual_cost(s, c, best_place(s, s->b[index_b]), index_b);
-		newcostless_tmp(c);
+	newcostless_tmp(c);
 	up_cost(c, best_place(s, s->b[index_b]), index_b);
 	if (c->total_cal < c->total_tmp)
 		newcostless_tmp(c);
@@ -80,8 +80,8 @@ int	totalcost(int index_b, t_stack *s, t_cost *c)
 
 int	index_costless_mv(t_stack *s, t_cost *c)
 {
-	int i;
-	int index;
+	int	i;
+	int	index;
 
 	i = -1;
 	costinit(c);

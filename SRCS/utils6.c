@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 19:11:00 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/04/28 18:33:47 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/05/05 18:29:52 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	newcostless_tmp(t_cost *c)
 {
-	c->ra_tmp =  c->ra_cal;
-	c->rb_tmp =  c->rb_cal;
-	c->rr_tmp =  c->rr_cal;
+	c->ra_tmp = c->ra_cal;
+	c->rb_tmp = c->rb_cal;
+	c->rr_tmp = c->rr_cal;
 	c->rra_tmp = c->rra_cal;
 	c->rrb_tmp = c->rrb_cal;
 	c->rrr_tmp = c->rrr_cal;
