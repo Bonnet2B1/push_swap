@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 15:54:44 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/05/06 19:43:31 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/05/06 19:55:00 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,3 @@ int	parser(char **argv, t_stack *s)
 		return (free(s->a), exit(0), 0);
 	return (1);
 }
-	
