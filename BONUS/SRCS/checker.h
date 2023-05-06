@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHECKER_BONUS_H
-# define CHECKER_BONUS_H
+#ifndef CHECKER_H
+# define CHECKER_H
 
 # include <stdio.h>
 # include <stdlib.h>
@@ -24,7 +24,6 @@ typedef struct s_stack
 {
 	int	*a;
 	int	*b;
-	int	*sortedtab;
 	int	size_a;
 	int	size_b;
 	int	median;
