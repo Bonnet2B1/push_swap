@@ -1,35 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   instructions1.c                                    :+:      :+:    :+:   */
+/*   instructions1_BONUS.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 19:18:10 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/05/05 16:48:06 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/05/07 00:14:19 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap_bonus.h"
+#include "checker_bonus.h"
 
 void	sa(t_stack *s)
 {
 	if (s->size_a < 2)
-	return ;
+		return ;
 	ft_swap(&s->a[0], &s->a[1]);
 }
 
 void	sb(t_stack *s)
 {
 	if (s->size_b < 2)
-	return ;
+		return ;
 	ft_swap(&s->b[0], &s->b[1]);
 }
 
 void	ss(t_stack *s)
 {
 	if (s->size_a < 2 || s->size_b < 2)
-	return ;
+		return ;
 	ft_swap(&s->a[0], &s->a[1]);
 	ft_swap(&s->b[0], &s->b[1]);
 }
@@ -42,7 +42,7 @@ void	pa(t_stack *s)
 	int	j;
 
 	if (!s->size_b)
-	return ;
+		return ;
 	i = -1;
 	j = -1;
 	new_stack_a = ft_calloc(sizeof(int), (s->size_a + 1));
@@ -68,7 +68,7 @@ void	pb(t_stack *s)
 	int	j;
 
 	if (!s->size_a)
-	return ;
+		return ;
 	i = -1;
 	j = -1;
 	new_stack_b = ft_calloc(sizeof(int), (s->size_b + 1));

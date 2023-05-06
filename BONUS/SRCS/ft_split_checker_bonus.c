@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
+/*   ft_split_checker_BONUS.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/23 17:04:24 by edelarbr          #+#    #+#             */
-/*   Updated: 2022/11/23 17:04:24 by edelarbr         ###   ########.fr       */
+/*   Created: 2023/05/07 00:09:18 by edelarbr          #+#    #+#             */
+/*   Updated: 2023/05/07 00:09:18 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap_bonus.h"
+#include "checker_bonus.h"
 
 static size_t	nextlen(const char *s, size_t i, char c)
 {

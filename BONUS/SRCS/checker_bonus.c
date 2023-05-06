@@ -1,33 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   checker_BONUS.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/23 21:45:53 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/05/05 17:16:57 by edelarbr         ###   ########.fr       */
+/*   Created: 2023/04/14 16:34:12 by edelarbr          #+#    #+#             */
+/*   Updated: 2023/05/07 00:08:12 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap_bonus.h"
+#include "checker_bonus.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+int	main(int argc, char **argv)
 {
-	size_t	i;
+	t_stack	*s;
 
-	i = 0;
-	if (s1 == NULL || s2 == NULL)
-		return (1);
-	while ((s1[i] || s2[i]) && i < n)
-	{
-		// if (!ft_isascii(s1[i]) || !ft_isascii(s2[i]))
-		// 	i++;
-		if ((s1[i] > s2[i]) || !s2[i])
-			return (1);
-		if ((s1[i] < s2[i]) || !s1[i])
-			return (-1);
-		i++;
-	}
-	return (0);
+	(void)argc;
+	s = malloc(sizeof(t_stack));
+	parser(argv, s);
+	if (!parser(argv, s))
+		return (write(1, "Error\n", 6));
+	reader(s);
+	if (sorted(s) && !s->size_b)
+		return (write(1, "OK\n", 3));
+	else
+		return (write(1, "KO\n", 3));
 }
+// penser à free gnl

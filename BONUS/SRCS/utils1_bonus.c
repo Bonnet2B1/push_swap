@@ -1,9 +1,21 @@
-#include "push_swap_bonus.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils1_bonus.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/07 00:13:53 by edelarbr          #+#    #+#             */
+/*   Updated: 2023/05/07 00:13:55 by edelarbr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "checker_bonus.h"
 
 void	*ft_calloc(size_t size, size_t count)
 {
 	unsigned char	*s;
-	size_t				i;
+	size_t			i;
 
 	i = -1;
 	s = malloc(count * size);
@@ -43,7 +55,8 @@ int	ft_atoi(char *str, int *atoi_error)
 		nbr = nbr * 10 + (str[i] - 48);
 		i++;
 	}
-	if (str[i] || ft_strlen(str) > 11 || (nbr * sign > 2147483647) || (nbr * sign < -2147483648))
+	if (str[i] || ft_strlen(str) > 11 || (nbr * sign > 2147483647) || (nbr
+			* sign < -2147483648))
 	{
 		*atoi_error = 1;
 		return (0);

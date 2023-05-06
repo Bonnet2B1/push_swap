@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_bonus.h                                  :+:      :+:    :+:   */
+/*   checker_BONUS.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/14 16:33:38 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/05/05 17:34:22 by edelarbr         ###   ########.fr       */
+/*   Created: 2023/05/07 00:08:43 by edelarbr          #+#    #+#             */
+/*   Updated: 2023/05/07 00:09:14 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_BONUS_H
-# define PUSH_SWAP_BONUS_H
+#ifndef CHECKER_BONUS_H
+# define CHECKER_BONUS_H
 
 # include <stdio.h>
 # include <stdlib.h>

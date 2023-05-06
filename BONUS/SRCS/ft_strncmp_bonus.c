@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reader.c                                           :+:      :+:    :+:   */
+/*   ft_strncmp_BONUS.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/02 17:50:34 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/05/05 17:34:15 by edelarbr         ###   ########.fr       */
+/*   Created: 2022/07/23 21:45:53 by edelarbr          #+#    #+#             */
+/*   Updated: 2023/05/07 00:10:03 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../get_next_line/get_next_line.h"
-#include "push_swap_bonus.h"
+#include "checker_bonus.h"
 
-int	reader(t_stack *s)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	char	*line;
+	size_t	i;
 
-	line = NULL;
-	line = get_next_line(0);
-	while (line)
+	i = 0;
+	if (s1 == NULL || s2 == NULL)
+		return (1);
+	while ((s1[i] || s2[i]) && i < n)
 	{
-		comparator(line, s);
-		free(line);
-		line = get_next_line(0);
+		if (!ft_isascii(s1[i]) || !ft_isascii(s2[i]))
+			i++;
+		if ((s1[i] > s2[i]) || !s2[i])
+			return (1);
+		if ((s1[i] < s2[i]) || !s1[i])
+			return (-1);
+		i++;
 	}
 	return (0);
 }
