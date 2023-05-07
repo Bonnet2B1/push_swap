@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 16:34:12 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/05/06 23:06:44 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/05/07 10:27:20 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,6 @@ int	main(int argc, char **argv)
 	if (!parser(argv, s))
 		return (write(1, "Error\n", 6));
 	algorithm(s, c);
+	while (1)
+		;
 }
