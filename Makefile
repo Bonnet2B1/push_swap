@@ -6,7 +6,7 @@
 #    By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/07 01:15:46 by edelarbr          #+#    #+#              #
-#    Updated: 2023/05/07 10:18:25 by edelarbr         ###   ########.fr        #
+#    Updated: 2023/05/09 19:47:54 by edelarbr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,19 +36,19 @@ SRCS		:=	SRCS/instructions3.c \
 				SRCS/utils3.c \
 				SRCS/parser.c \
 
-SRCS_BONUS	:=	BONUS/get_next_line/get_next_line_utils.c \
-				BONUS/get_next_line/get_next_line.c \
-				BONUS/SRCS/instructions3.c \
-				BONUS/SRCS/utils2.c \
-				BONUS/SRCS/checker.c \
-				BONUS/SRCS/utils1.c \
-				BONUS/SRCS/ft_split.c \
-				BONUS/SRCS/instructions1.c \
-				BONUS/SRCS/reader.c \
-				BONUS/SRCS/ft_strncmp.c \
-				BONUS/SRCS/instructions2.c \
-				BONUS/SRCS/utils3.c \
-				BONUS/SRCS/parser.c \
+SRCS_BONUS	:=	BONUS/get_next_line/get_next_line_utils_bonus.c \
+				BONUS/get_next_line/get_next_line_bonus.c \
+				BONUS/SRCS/instructions3_bonus.c \
+				BONUS/SRCS/utils2_bonus.c \
+				BONUS/SRCS/checker_bonus.c \
+				BONUS/SRCS/utils1_bonus.c \
+				BONUS/SRCS/ft_split_bonus.c \
+				BONUS/SRCS/instructions1_bonus.c \
+				BONUS/SRCS/reader_bonus.c \
+				BONUS/SRCS/ft_strncmp_bonus.c \
+				BONUS/SRCS/instructions2_bonus.c \
+				BONUS/SRCS/utils3_bonus.c \
+				BONUS/SRCS/parser_bonus.c \
 
 OBJS		:=	$(SRCS:.c=.o)
 OBJS_BONUS	:=	$(SRCS_BONUS:.c=.o)
@@ -69,14 +69,14 @@ BLUE		:= \033[1;34m
 CYAN 		:= \033[1;36m
 RM			:= rm -f
 
+all:		${NAME}
+
 ${NAME}:	${OBJS}
 			@echo "$(GREEN)Compilation ${CLR_RMV}of ${YELLOW}$(NAME) ${CLR_RMV}..."
 			${CC} ${FLAGS} -o ${NAME} ${OBJS}
 			@echo "$(GREEN)$(NAME) created[0m ✔️"
 
-all:		${NAME}
-
-bonus:		${OBJS} ${OBJS_BONUS}
+bonus:		${OBJS_BONUS}
 			@echo "$(GREEN)Compilation ${CLR_RMV}of ${YELLOW}$(NAME) ${CLR_RMV}..."
 			${CC} ${FLAGS} -o ${NAME} ${OBJS_BONUS}
 			@echo "$(GREEN)$(NAME) created[0m ✔️"

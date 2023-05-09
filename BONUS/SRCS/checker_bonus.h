@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.h                                    :+:      :+:    :+:   */
+/*   checker_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 00:08:43 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/05/07 00:09:14 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/05/09 19:15:57 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHECKER_H
-# define CHECKER_H
+#ifndef checker_bonus_BONUS_H
+# define checker_bonus_BONUS_H
 
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include "../get_next_line/get_next_line.h"
+# include "../get_next_line/get_next_line_bonus.h"
 
 // structure
 

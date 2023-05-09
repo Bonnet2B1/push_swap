@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils1.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/09 17:56:24 by edelarbr          #+#    #+#             */
+/*   Updated: 2023/05/09 17:56:25 by edelarbr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	*ft_calloc(size_t size, size_t count)
 {
 	unsigned char	*s;
-	size_t				i;
+	size_t			i;
 
 	i = -1;
 	s = malloc(count * size);
@@ -43,7 +55,8 @@ int	ft_atoi(char *str, int *atoi_error)
 		nbr = nbr * 10 + (str[i] - 48);
 		i++;
 	}
-	if (str[i] || ft_strlen(str) > 11 || (nbr * sign > 2147483647) || (nbr * sign < -2147483648))
+	if (str[i] || ft_strlen(str) > 11
+		|| (nbr * sign > 2147483647) || (nbr * sign < -2147483648))
 	{
 		*atoi_error = 1;
 		return (0);
@@ -51,9 +64,9 @@ int	ft_atoi(char *str, int *atoi_error)
 	return (sign * nbr);
 }
 
-void print_stacks(t_stack *s)
+void	print_stacks(t_stack *s)
 {
-	int i;
+	int	i;
 
 	i = -1;
 	printf("a: ");

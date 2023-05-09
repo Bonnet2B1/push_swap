@@ -6,13 +6,13 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 23:08:13 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/05/04 18:51:19 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/05/09 18:25:32 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	multiple_args(char **argv)
+int	multiple_args(char **argv, int *freeargv)
 {
 	int	i;
 
@@ -20,8 +20,12 @@ int	multiple_args(char **argv)
 	while (!argv[2] && argv[1][++i])
 	{
 		if (argv[1][i] == ' ')
+		{
+			*freeargv = 1;
 			return (1);
+		}
 	}
+	*freeargv = 0;
 	return (0);
 }
 
@@ -57,16 +61,6 @@ int	sorted(t_stack *s)
 	return (1);
 }
 
-void	freeall(int **stack, int stack_size)
-{
-	int	i;
-
-	i = -1;
-	while (++i < stack_size)
-		free(stack[i]);
-	free(stack);
-}
-
 int	indexofthesmallest(int **stack, int stack_size)
 {
 	int	i;
@@ -77,10 +71,12 @@ int	indexofthesmallest(int **stack, int stack_size)
 	smallest = stack[0][0];
 	index = 0;
 	while (++i < stack_size)
+	{
 		if (smallest > stack[0][i])
 		{
 			smallest = stack[0][i];
 			index = i;
 		}
+	}
 	return (index);
 }

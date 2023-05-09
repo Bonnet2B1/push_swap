@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 19:11:00 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/05/05 18:29:52 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/05/09 18:08:21 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,18 @@ void	move(t_stack *s, t_cost *c)
 	while (c->rb--)
 		rb(s);
 	pa(s);
+}
+
+void	freeall(t_stack *s, t_cost *c)
+{
+	if (s->a)
+		free(s->a);
+	if (s->b)
+		free(s->b);
+	if (s->sortedtab)
+		free(s->sortedtab);
+	if (s)
+		free(s);
+	if (c)
+		free(c);
 }

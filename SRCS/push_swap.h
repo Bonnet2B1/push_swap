@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 16:33:38 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/05/02 15:27:11 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/05/09 18:24:42 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,10 +76,9 @@ int		huge_arg(char **argv);
 void	smallest_go_top(t_stack *s, int **stack, int stack_size);
 
 // utils3.c
-int		multiple_args(char **argv);
+int		multiple_args(char **argv, int *freeargv);
 int		dbl(t_stack *s);
 int		sorted(t_stack *s);
-void	freeall(int **stack, int stack_size);
 int		indexofthesmallest(int **stack, int stack_size);
 
 // utils4.c
@@ -99,6 +98,7 @@ void	down_cost(t_stack *s, t_cost *c, int index_a, int index_b);
 // utils6.c
 void	newcostless_tmp(t_cost *c);
 void	move(t_stack *s, t_cost *c);
+void	freeall(t_stack *s, t_cost *c);
 
 // algorithm.c
 void	algorithm(t_stack *s, t_cost *c);
