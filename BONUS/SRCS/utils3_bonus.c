@@ -6,13 +6,13 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 23:08:13 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/05/09 19:15:57 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/05/10 17:19:24 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker_bonus.h"
 
-int	multiple_args(char **argv)
+int	multiple_args(char **argv, int *freeargv)
 {
 	int	i;
 
@@ -20,8 +20,12 @@ int	multiple_args(char **argv)
 	while (!argv[2] && argv[1][++i])
 	{
 		if (argv[1][i] == ' ')
+		{
+			*freeargv = 1;
 			return (1);
+		}
 	}
+	*freeargv = 0;
 	return (0);
 }
 
@@ -57,3 +61,12 @@ int	sorted(t_stack *s)
 	return (1);
 }
 
+void	freeall(t_stack *s)
+{
+	if (s->a)
+		free(s->a);
+	if (s->b)
+		free(s->b);
+	if (s)
+		free(s);
+}

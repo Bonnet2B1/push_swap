@@ -6,12 +6,12 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 00:08:43 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/05/09 19:15:57 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/05/10 17:19:44 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef checker_bonus_BONUS_H
-# define checker_bonus_BONUS_H
+#ifndef CHECKER_BONUS_H
+# define CHECKER_BONUS_H
 
 # include <stdio.h>
 # include <stdlib.h>
@@ -26,8 +26,6 @@ typedef struct s_stack
 	int	*b;
 	int	size_a;
 	int	size_b;
-	int	median;
-
 }		t_stack;
 
 // ft_split.c
@@ -48,9 +46,10 @@ size_t	ft_strlen(const char *s);
 int		arg_counter(char **argv);
 
 // utils3.c
-int		multiple_args(char **argv);
+int		multiple_args(char **argv, int *freeargv);
 int		dbl(t_stack *s);
 int		sorted(t_stack *s);
+void	freeall(t_stack *s);
 
 // ft_strncmp.c
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
