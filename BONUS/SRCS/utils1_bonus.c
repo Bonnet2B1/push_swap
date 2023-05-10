@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 00:13:53 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/05/10 18:24:57 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/05/10 19:56:02 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ int	ft_atoi(char *str, int *atoi_error)
 			sign *= -1;
 		i++;
 	}
+	if (!(str[i + 1] >= '0' && str[i + 1] <= '9'))
+		*atoi_error = 1;
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		nbr = nbr * 10 + (str[i] - 48);
@@ -57,10 +59,7 @@ int	ft_atoi(char *str, int *atoi_error)
 	}
 	if (str[i] || ft_strlen(str) > 11 || (nbr * sign > 2147483647) || (nbr
 			* sign < -2147483648))
-	{
 		*atoi_error = 1;
-		return (0);
-	}
 	return (sign * nbr);
 }
 
