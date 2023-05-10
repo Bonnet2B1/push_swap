@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 17:45:44 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/05/02 16:12:43 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/05/10 18:24:06 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	newcostless(t_cost *c)
 {
-	c->ra =  c->ra_tmp;
-	c->rb =  c->rb_tmp;
-	c->rr =  c->rr_tmp;
+	c->ra = c->ra_tmp;
+	c->rb = c->rb_tmp;
+	c->rr = c->rr_tmp;
 	c->rra = c->rra_tmp;
 	c->rrb = c->rrb_tmp;
 	c->rrr = c->rrr_tmp;
@@ -30,9 +30,9 @@ void	newcostless(t_cost *c)
 	c->total_tmp = 2147483647;
 }
 
-int		best_place(t_stack *s, int value)
+int	best_place(t_stack *s, int value)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (++i < s->size_a)
@@ -64,8 +64,9 @@ void	individual_cost(t_stack *s, t_cost *c, int index_a, int index_b)
 		c->rra_cal--;
 		c->rrb_cal--;
 		c->rrr_cal++;
- 	}
-	c->total_cal = c->ra_cal + c->rb_cal + c->rr_cal + c->rra_cal + c->rrb_cal + c->rrr_cal;
+	}
+	c->total_cal = c->ra_cal + c->rb_cal + c->rr_cal + c->rra_cal + c->rrb_cal
+		+ c->rrr_cal;
 }
 
 void	up_cost(t_cost *c, int index_a, int index_b)
@@ -98,6 +99,6 @@ void	down_cost(t_stack *s, t_cost *c, int index_a, int index_b)
 		c->rra_cal--;
 		c->rrb_cal--;
 		c->rrr_cal++;
- 	}
+	}
 	c->total_cal = c->rra_cal + c->rrb_cal + c->rrr_cal;
 }

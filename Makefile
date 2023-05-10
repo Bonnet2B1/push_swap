@@ -6,7 +6,7 @@
 #    By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/07 01:15:46 by edelarbr          #+#    #+#              #
-#    Updated: 2023/05/10 18:14:11 by edelarbr         ###   ########.fr        #
+#    Updated: 2023/05/10 18:22:50 by edelarbr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,36 +62,36 @@ OBJS_BONUS	:=	$(SRCS_BONUS:.c=.o)
 ################################################################################
 
 
-CLR_RMV		:= \033[0m
-RED			:= \033[1;31m
-GREEN		:= \033[1;32m
-YELLOW		:= \033[1;33m
-BLUE		:= \033[1;34m
-CYAN 		:= \033[1;36m
-RM			:= rm -f
+CLR_RMV		:=	\033[0m
+RED			:=	\033[1;31m
+GREEN		:=	\033[1;32m
+YELLOW		:=	\033[1;33m
+BLUE		:=	\033[1;34m
+CYAN 		:=	\033[1;36m
+RM			:=	rm -f
 
-all:		${NAME}
+all:			${NAME}
 
-bonus:		${NAME_BONUS}
+bonus:			${NAME_BONUS}
 
-${NAME}:	${OBJS}
-			@echo "$(GREEN)Compilation ${CLR_RMV}of ${YELLOW}$(NAME) ${CLR_RMV}..."
-			${CC} ${FLAGS} -o ${NAME} ${OBJS}
-			@echo "$(GREEN)$(NAME) created[0m ✔️"
+${NAME}:		${OBJS}
+				@echo "$(GREEN)Compilation ${CLR_RMV}of ${YELLOW}$(NAME) ${CLR_RMV}..."
+				${CC} ${FLAGS} -o ${NAME} ${OBJS}
+				@echo "$(GREEN)$(NAME) created[0m ✔️"
 
 ${NAME_BONUS}:	${OBJS_BONUS}
-			@echo "$(GREEN)Compilation ${CLR_RMV}of ${YELLOW}$(NAME_BONUS) ${CLR_RMV}..."
-			${CC} ${FLAGS} -o ${NAME_BONUS} ${OBJS_BONUS}
-			@echo "$(GREEN)$(NAME_BONUS) created[0m ✔️"
+				@echo "$(GREEN)Compilation ${CLR_RMV}of ${YELLOW}$(NAME_BONUS) ${CLR_RMV}..."
+				${CC} ${FLAGS} -o ${NAME_BONUS} ${OBJS_BONUS}
+				@echo "$(GREEN)$(NAME_BONUS) created[0m ✔️"
 
 clean:
-			@ ${RM} *.o */*.o */*/*.o
-			@ echo "$(RED)Deleting $(CYAN)$(NAME) $(CLR_RMV)objs ✔️"
+				@ ${RM} *.o */*.o */*/*.o
+				@ echo "$(RED)Deleting $(CYAN)$(NAME) $(CLR_RMV)objs ✔️"
 
-fclean:		clean
-			@ ${RM} ${NAME} ${RM} ${NAME_BONUS}
-			@ echo "$(RED)Deleting $(CYAN)$(NAME) $(CLR_RMV)binary ✔️"
+fclean:			clean
+				@ ${RM} ${NAME} ${RM} ${NAME_BONUS}
+				@ echo "$(RED)Deleting $(CYAN)$(NAME) $(CLR_RMV)binary ✔️"
 
-re:			fclean all
+re:				fclean all
 
-.PHONY:		all clean fclean re
+.PHONY:			all clean fclean re

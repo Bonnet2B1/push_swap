@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils2.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/10 18:23:36 by edelarbr          #+#    #+#             */
+/*   Updated: 2023/05/10 18:23:48 by edelarbr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 size_t	ft_strlen(const char *s)
@@ -28,22 +40,22 @@ char	*ft_strdup(const char *src)
 	return (dup);
 }
 
-int arg_counter(char **argv)
+int	arg_counter(char **argv)
 {
-	int i;
-	
+	int	i;
+
 	i = 0;
 	while (argv[i])
 		i++;
 	return (i);
 }
 
-int huge_arg(char **argv)
+int	huge_arg(char **argv)
 {
-	int i;
+	int	i;
 
 	i = -1;
-	while(argv[++i])
+	while (argv[++i])
 	{
 		if (ft_strlen(argv[i]) > 11)
 			return (1);
