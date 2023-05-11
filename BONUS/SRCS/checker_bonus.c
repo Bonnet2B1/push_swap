@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 19:18:17 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/05/10 17:32:52 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/05/11 17:12:06 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ int	main(int argc, char **argv)
 {
 	t_stack	*s;
 
-	(void)argc;
+	if (argc == 1)
+		return (0);
 	s = malloc(sizeof(t_stack));
 	if (!s)
 		return (freeall(s), 0);
