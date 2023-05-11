@@ -6,7 +6,7 @@
 #    By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/07 01:15:46 by edelarbr          #+#    #+#              #
-#    Updated: 2023/05/11 17:01:58 by edelarbr         ###   ########.fr        #
+#    Updated: 2023/05/11 17:14:47 by edelarbr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -70,7 +70,7 @@ BLUE		:=	\033[1;34m
 CYAN 		:=	\033[1;36m
 RM			:=	rm -f
 
-all:			$(NAME) $(NAME_BONUS)
+all:			$(NAME)
 
 bonus:			$(NAME_BONUS)
 
