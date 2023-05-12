@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 16:33:38 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/05/10 17:19:44 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/05/12 14:47:39 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,6 @@ int		parser(char **argv, t_stack *s);
 void	*ft_calloc(size_t count, size_t size);
 void	ft_swap(int *a, int *b);
 int		ft_atoi(char *str, int *atoi_error);
-void	print_stacks(t_stack *s);
 void	migration(t_stack *s);
 
 // utils2.c

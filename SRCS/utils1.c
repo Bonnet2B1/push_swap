@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 17:56:24 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/05/11 17:04:43 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/05/12 14:46:06 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,32 +61,6 @@ int	ft_atoi(char *str, int *atoi_error)
 		|| (nbr * sign > 2147483647) || (nbr * sign < -2147483648))
 		*atoi_error = 1;
 	return (sign * nbr);
-}
-
-void	print_stacks(t_stack *s)
-{
-	int	i;
-
-	i = -1;
-	printf("a: ");
-	if (s->size_a == 0)
-		printf("empty\n");
-	else
-	{
-		while (++i < s->size_a)
-			printf("%d ", s->a[i]);
-		printf("\n");
-	}
-	i = -1;
-	printf("b: ");
-	if (s->size_b == 0)
-		printf("empty\n");
-	else
-	{
-		while (++i < s->size_b)
-			printf("%d ", s->b[i]);
-		printf("\n");
-	}
 }
 
 void	migration(t_stack *s)
