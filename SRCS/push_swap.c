@@ -12,6 +12,11 @@
 
 #include "push_swap.h"
 
+// dans freeall mettre if (s) au début des free de s et laisser free(s) à la fin des free s
+
+// gérer ./push_swap "" "" (atoi error doit etre = à 1
+// gérer ./push_swap 000000002 000000000000000000000000000000001 (retirer les 0 avant le parse du strlen > 11
+
 int	main(int argc, char **argv)
 {
 	t_stack	*s;
