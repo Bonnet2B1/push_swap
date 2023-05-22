@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 18:23:36 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/05/16 19:22:54 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/05/22 17:20:32 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	arg_counter(char **argv)
 	arg = 0;
 	while (argv[i])
 	{
-		if (argv[i][0])
+		if (argv[i][0] != '\0')
 			arg++;
 		i++;
 	}
