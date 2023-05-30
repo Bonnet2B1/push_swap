@@ -6,7 +6,7 @@
 #    By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/07 01:15:46 by edelarbr          #+#    #+#              #
-#    Updated: 2023/05/22 17:21:20 by edelarbr         ###   ########.fr        #
+#    Updated: 2023/05/29 22:17:38 by edelarbr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,7 +55,7 @@ OBJS		:=	$(SRCS:.c=.o)
 OBJS_BONUS	:=	$(SRCS_BONUS:.c=.o)
 
 .c.o:
-	$(CC) $(FLAGS) -c $< -o $(<:.c=.o)
+	@ $(CC) $(FLAGS) -c $< -o $(<:.c=.o)
 
 ################################################################################
 #                                  Makefile  objs                              #
@@ -75,17 +75,17 @@ all:			$(NAME)
 bonus:			$(NAME_BONUS)
 
 $(NAME):		$(OBJS)
-				@echo "$(GREEN)Compilation $(CLR_RMV)of $(YELLOW)$(NAME) $(CLR_RMV)..."
-				$(CC) $(FLAGS) -o $(NAME) $(OBJS)
-				@echo "$(GREEN)$(NAME) created[0m ✔️"
+				@ echo "$(GREEN)Compilation $(CLR_RMV)of $(YELLOW)$(NAME) $(CLR_RMV)..."
+				@ $(CC) $(FLAGS) -o $(NAME) $(OBJS)
+				@ echo "$(GREEN)$(NAME) created[0m ✔️"
 
 $(NAME_BONUS):	$(OBJS_BONUS)
-				@echo "$(GREEN)Compilation $(CLR_RMV)of $(YELLOW)$(NAME_BONUS) $(CLR_RMV)..."
-				$(CC) $(FLAGS) -o $(NAME_BONUS) $(OBJS_BONUS)
-				@echo "$(GREEN)$(NAME_BONUS) created[0m ✔️"
+				@ echo "$(GREEN)Compilation $(CLR_RMV)of $(YELLOW)$(NAME_BONUS) $(CLR_RMV)..."
+				@ $(CC) $(FLAGS) -o $(NAME_BONUS) $(OBJS_BONUS)
+				@ echo "$(GREEN)$(NAME_BONUS) created[0m ✔️"
 
 clean:
-				@ $(RM) *.o */*.o */*/*.o
+				@ $(RM) $(OBJS) $(OBJS_BONUS)
 				@ echo "$(RED)Deleting $(CYAN)$(NAME) $(CLR_RMV)objs ✔️"
 
 fclean:			clean

@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 16:33:38 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/05/16 18:55:57 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/05/29 21:49:22 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,13 +64,13 @@ int		parser(char **argv, t_stack *s);
 // utils1.c
 void	*ft_calloc(size_t count, size_t size);
 void	ft_swap(int *a, int *b);
-int		ft_atoi(char *str, int *atoi_error, int zero);
+int		ft_atoi(char *str, int *error, int zero);
 void	migration(t_stack *s);
 
 // utils2.c
 char	*ft_strdup(const char *src);
 size_t	ft_strlen(const char *s);
-int		arg_counter(char **argv);
+int		arg_counter(char **argv, int *error);
 int		huge_arg(char **argv);
 void	smallest_go_top(t_stack *s, int **stack, int stack_size);
 

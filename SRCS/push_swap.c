@@ -6,11 +6,12 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 16:34:12 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/05/16 19:03:08 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/05/29 22:10:16 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
 // dans freeall mettre if (s) au début des free de s et laisser free(s) à la fin des free s
 
 // gérer ./push_swap "" "" (atoi error doit etre = à 1

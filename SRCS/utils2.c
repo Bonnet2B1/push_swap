@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 18:23:36 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/05/22 17:20:32 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/05/29 22:12:09 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,20 +40,19 @@ char	*ft_strdup(const char *src)
 	return (dup);
 }
 
-int	arg_counter(char **argv)
+int	arg_counter(char **argv, int *error)
 {
 	int	i;
-	int	arg;
 
-	i = 0;
-	arg = 0;
-	while (argv[i])
+	i = -1;
+	while (argv[++i] != NULL)
 	{
-		if (argv[i][0] != '\0')
-			arg++;
-		i++;
+		printf("%p : argv[%d] = \"%s\"\n", argv[i], i, argv[i]);
+		if (argv[i][0] == '\0')
+			return (*error = 1, 0);
 	}
-	return (arg);
+	printf("s->size_a = %d\n", i);
+	return (*error = 0, i);
 }
 
 int	huge_arg(char **argv)
