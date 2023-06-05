@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 17:56:24 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/06/05 23:09:08 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/06/05 23:25:41 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,11 @@ int	zero_berfore_nbr(char *str)
 	int	i;
 
 	i = 0;
-	while (str[i] != '0')
+	while (str[i] && str[i] != '0')
 		i++;
 	while (str[i] == '0')
 	{
-		if (str[i + 1] >= '0' && str[i + 1] <= '9')
+		if (str[i] && str[i + 1] >= '0' && str[i + 1] <= '9')
 			return (1);
 		i++;
 	}
