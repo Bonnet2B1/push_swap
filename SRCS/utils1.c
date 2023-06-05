@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 17:56:24 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/06/05 23:00:49 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/06/05 23:09:08 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,10 +71,7 @@ int	ft_atoi(char *str, int *atoi_error)
 			return (*atoi_error = 1);
 	}
 	while (str[i] >= '0' && str[i] <= '9')
-	{
-		nbr = nbr * 10 + (str[i] - 48);
-		i++;
-	}
+		nbr = nbr * 10 + (str[i++] - 48);
 	if (str[i] || ft_strlen(str) > 11
 		|| (nbr * sign > 2147483647) || (nbr * sign < -2147483648))
 		return (*atoi_error = 1);
