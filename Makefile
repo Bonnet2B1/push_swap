@@ -6,7 +6,7 @@
 #    By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/07 01:15:46 by edelarbr          #+#    #+#              #
-#    Updated: 2023/06/05 21:34:11 by edelarbr         ###   ########.fr        #
+#    Updated: 2023/06/05 22:33:32 by edelarbr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@
 NAME		:=	push_swap
 NAME_BONUS	:=	checker
 CC			:=	gcc
-FLAGS		:=	-Wall -Wextra -Werror -g -g3 -fsanitize=address
+FLAGS		:=	-Wall -Wextra -Werror #-g -g3 -fsanitize=address
 ################################################################################
 #                                 PROGRAM'S SRCS                               #
 ################################################################################
