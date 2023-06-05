@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 17:56:24 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/06/05 21:56:55 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/06/05 22:26:43 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	ft_swap(int *a, int *b)
 	*a = x;
 }
 
-int	ft_atoi(char *str, int *error)
+int	ft_atoi(char *str, int *atoi_error)
 {
 	int		i;
 	int		sign;
@@ -46,16 +46,20 @@ int	ft_atoi(char *str, int *error)
 	nbr = 0;
 	if (str[i] == '-' || str[i] == '+')
 	{
-		if (str[i++] == '-')
+		if (str[i] == '-')
 			sign *= -1;
+		i++;
 		if (!(str[i] >= '0' && str[i] <= '9'))
-			*error = 1;
+			*atoi_error = 1;
 	}
 	while (str[i] >= '0' && str[i] <= '9')
-		nbr = nbr * 10 + (str[i++] - 48);
-	if (str[i] || (ft_strlen(str) > 11) || (nbr
-			* sign > 2147483647) || (nbr * sign < -2147483648))
-		*error = 1;
+	{
+		nbr = nbr * 10 + (str[i] - 48);
+		i++;
+	}
+	if (str[i] || ft_strlen(str) > 11
+		|| (nbr * sign > 2147483647) || (nbr * sign < -2147483648))
+		*atoi_error = 1;
 	return (sign * nbr);
 }
 

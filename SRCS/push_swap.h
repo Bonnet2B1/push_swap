@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 16:33:38 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/06/05 21:56:26 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/06/05 22:25:41 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	migration(t_stack *s);
 // utils2.c
 char	*ft_strdup(const char *src);
 size_t	ft_strlen(const char *s);
-int		arg_counter(char **argv, int *error);
+int		arg_counter(char **argv);
 int		huge_arg(char **argv);
 void	smallest_go_top(t_stack *s, int **stack, int stack_size);
 
