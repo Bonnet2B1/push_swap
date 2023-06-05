@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 17:56:24 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/06/05 21:38:52 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/06/05 21:56:55 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	ft_swap(int *a, int *b)
 	*a = x;
 }
 
-int	ft_atoi(char *str, int *error, int zero)
+int	ft_atoi(char *str, int *error)
 {
 	int		i;
 	int		sign;
@@ -51,11 +51,9 @@ int	ft_atoi(char *str, int *error, int zero)
 		if (!(str[i] >= '0' && str[i] <= '9'))
 			*error = 1;
 	}
-	if (str[i] == '0' && (str[i + 1] >= '0' && str[i + 1] <= '9'))
-		zero = 1;
 	while (str[i] >= '0' && str[i] <= '9')
 		nbr = nbr * 10 + (str[i++] - 48);
-	if (str[i] || (ft_strlen(str) > 11 && zero == 0) || (nbr
+	if (str[i] || (ft_strlen(str) > 11) || (nbr
 			* sign > 2147483647) || (nbr * sign < -2147483648))
 		*error = 1;
 	return (sign * nbr);

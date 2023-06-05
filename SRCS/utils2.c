@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 18:23:36 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/06/05 21:40:15 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/06/05 21:57:38 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ char	*ft_strdup(const char *src)
 	return (dup);
 }
 
-int	arg_counter(char **argv, int *error)
+int	arg_counter(char **argv)
 {
 	int	i;
 
