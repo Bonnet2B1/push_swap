@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 16:33:38 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/06/05 22:25:41 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/06/23 21:53:52 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ typedef struct s_stack
 	int	size_a;
 	int	size_b;
 	int	median;
-
 }		t_stack;
 
 typedef struct s_cost

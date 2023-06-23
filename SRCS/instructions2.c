@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 19:18:10 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/05/02 15:24:09 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/06/23 21:59:58 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ra(t_stack *s)
 	int	i;
 
 	if (!s->size_a)
-		write(1, "illegal operation\n", 18);
+		return ;
 	i = -1;
 	temp = s->a[0];
 	while (++i < s->size_a - 1)
@@ -33,7 +33,7 @@ void	rb(t_stack *s)
 	int	i;
 
 	if (!s->size_b)
-		write(1, "illegal operation\n", 18);
+		return ;
 	i = -1;
 	temp = s->b[0];
 	while (++i < s->size_b - 1)
@@ -48,7 +48,7 @@ void	rr(t_stack *s)
 	int	i;
 
 	if (!s->size_a || !s->size_b)
-		write(1, "illegal operation\n", 18);
+		return ;
 	i = -1;
 	temp = s->a[0];
 	while (++i < s->size_a - 1)
@@ -68,7 +68,7 @@ void	rra(t_stack *s)
 	int	i;
 
 	if (!s->size_a)
-		write(1, "illegal operation\n", 18);
+		return ;
 	i = s->size_a - 1;
 	temp = s->a[i++];
 	while (--i > 0)
@@ -83,7 +83,7 @@ void	rrb(t_stack *s)
 	int	i;
 
 	if (!s->size_b)
-		write(1, "illegal operation\n", 18);
+		return ;
 	i = s->size_b - 1;
 	temp = s->b[i++];
 	while (--i > 0)

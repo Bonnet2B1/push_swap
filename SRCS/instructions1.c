@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 19:18:10 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/05/02 15:23:41 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/06/23 21:59:58 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	sa(t_stack *s)
 {
 	if (s->size_a < 2)
-		write(1, "illegal operation\n", 18);
+		return ;
 	ft_swap(&s->a[0], &s->a[1]);
 	write(1, "sa\n", 3);
 }
@@ -23,7 +23,7 @@ void	sa(t_stack *s)
 void	sb(t_stack *s)
 {
 	if (s->size_b < 2)
-		write(1, "illegal operation\n", 18);
+		return ;
 	ft_swap(&s->b[0], &s->b[1]);
 	write(1, "sb\n", 3);
 }
@@ -31,7 +31,7 @@ void	sb(t_stack *s)
 void	ss(t_stack *s)
 {
 	if (s->size_a < 2 || s->size_b < 2)
-		write(1, "illegal operation\n", 18);
+		return ;
 	ft_swap(&s->a[0], &s->a[1]);
 	ft_swap(&s->b[0], &s->b[1]);
 	write(1, "ss\n", 3);
@@ -45,7 +45,7 @@ void	pa(t_stack *s)
 	int	j;
 
 	if (!s->size_b)
-		write(1, "illegal operation\n", 18);
+		return ;
 	i = -1;
 	j = -1;
 	new_stack_a = ft_calloc(sizeof(int), (s->size_a + 1));
@@ -72,7 +72,7 @@ void	pb(t_stack *s)
 	int	j;
 
 	if (!s->size_a)
-		write(1, "illegal operation\n", 18);
+		return ;
 	i = -1;
 	j = -1;
 	new_stack_b = ft_calloc(sizeof(int), (s->size_b + 1));
