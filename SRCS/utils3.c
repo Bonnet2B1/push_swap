@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 23:08:13 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/06/24 19:55:37 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/06/24 21:44:34 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,11 @@ int	dbl(t_stack *s)
 
 	i = -1;
 	j = -1;
-	while (++i <= s->size_a - 1)
+	while (++i < s->size_a)
 	{
-		while (++j <= s->size_a - 1)
+		while (++j < s->size_a)
 		{
-			if (i == j)
-				j++;
-			if (s->a[i] == s->a[j])
+			if (i != j && s->a[i] == s->a[j])
 				return (1);
 		}
 		j = -1;
