@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 16:33:38 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/06/23 21:53:52 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/07/05 19:10:28 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-// structure
 
 typedef struct s_stack
 {
@@ -54,57 +53,46 @@ typedef struct s_cost
 	int	total;
 }		t_cost;
 
-// ft_split.c
 char	**ft_split(const char *s, char c);
 
-// parser.c
 int		parser(char **argv, t_stack *s);
 
-// utils1.c
 void	*ft_calloc(size_t count, size_t size);
 void	ft_swap(int *a, int *b);
 int		ft_atoi(char *str, int *error);
 void	migration(t_stack *s);
 
-// utils2.c
 char	*ft_strdup(const char *src);
 size_t	ft_strlen(const char *s);
 int		arg_counter(char **argv);
 int		huge_arg(char **argv);
 void	smallest_go_top(t_stack *s, int **stack, int stack_size);
 
-// utils3.c
 int		multiple_args(char **argv, int *freeargv);
 int		dbl(t_stack *s);
 int		sorted(t_stack *s);
 int		indexofthesmallest(int **stack, int stack_size);
 
-// utils4.c
 int		biggestisontop(t_stack *s);
 int		smallestisontop(t_stack *s);
 void	costinit(t_cost *c);
 int		totalcost(int index_b, t_stack *s, t_cost *c);
 int		index_costless_mv(t_stack *s, t_cost *c);
 
-// utils5.c
 void	newcostless(t_cost *c);
 int		best_place(t_stack *s, int value);
 void	individual_cost(t_stack *s, t_cost *c, int index_a, int index_b);
 void	up_cost(t_cost *c, int index_a, int index_b);
 void	down_cost(t_stack *s, t_cost *c, int index_a, int index_b);
 
-// utils6.c
 void	newcostless_tmp(t_cost *c);
 void	move(t_stack *s, t_cost *c);
 void	freeall(t_stack *s, t_cost *c);
 
-// algorithm.c
 void	algorithm(t_stack *s, t_cost *c);
 
-// lilsort.c
 void	lilsort(t_stack *s);
 
-//	Instructions
 void	sa(t_stack *s);
 void	sb(t_stack *s);
 void	ss(t_stack *s);

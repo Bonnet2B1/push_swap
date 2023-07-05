@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 00:08:43 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/06/28 00:09:35 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/07/05 19:10:08 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # include <unistd.h>
 # include "../get_next_line/get_next_line_bonus.h"
 
-// structure
 
 typedef struct s_stack
 {
@@ -28,37 +27,29 @@ typedef struct s_stack
 	int	size_b;
 }		t_stack;
 
-// ft_split.c
 char	**ft_split(const char *s, char c);
 
-// parser.c
 int		parser(char **argv, t_stack *s);
 
-// utils1.c
 void	*ft_calloc(size_t count, size_t size);
 void	ft_swap(int *a, int *b);
 int		ft_atoi(char *str, int *atoi_error);
 int		ft_isascii(int c);
 void	comparator(char *line, t_stack *s);
 
-// utils2.c
 size_t	ft_strlen(const char *s);
 int		arg_counter(char **argv);
 int		zero_berfore_nbr(char *str);
 
-// utils3.c
 int		multiple_args(char **argv, int *freeargv);
 int		dbl(t_stack *s);
 int		sorted(t_stack *s);
 void	freeall(t_stack *s);
 
-// ft_strncmp.c
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 
-// reader.c
 int		reader(t_stack *s);
 
-//	Instructions
 void	sa(t_stack *s);
 void	sb(t_stack *s);
 void	ss(t_stack *s);
