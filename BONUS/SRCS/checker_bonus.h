@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 00:08:43 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/07/05 19:10:08 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/07/05 19:10:55 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include "../get_next_line/get_next_line_bonus.h"
-
 
 typedef struct s_stack
 {
