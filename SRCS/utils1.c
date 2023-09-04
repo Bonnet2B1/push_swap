@@ -6,12 +6,11 @@
 /*   By: edelarbr <edelarbr@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 17:56:24 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/08/20 21:19:43 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/09/04 17:49:42 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "checker_bonus.h"
 
 void	*ft_calloc(size_t size, size_t count)
 {
